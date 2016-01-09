@@ -11,6 +11,10 @@ var hotelSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  fullName:{
+    type: String,
+    required: true
+  },
   hotelName:{
     type: String,
     required: true,
@@ -28,12 +32,28 @@ var hotelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  zipcode:{
+    type: Number,
+    required: true,
+  },
+  phone:{
+    type: Number,
+    required: true,
+  },
   starHotel:{
     type: String,
     required:  true
   },
   bathrooms:{
     type: Number,
+    required: true
+  },
+  hotelEmail:{
+    type: String,
+    required: true
+  },
+  hotelDescription:{
+    type: String,
     required: true
   },
   bedType:{
