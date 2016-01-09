@@ -26,7 +26,11 @@ var hotelSchema = new mongoose.Schema({
   },
   state:{
     type: String,
-    //required: true,
+    required: true,
+  },
+  starHotel:{
+    type: String,
+    required:  true
   },
   bathrooms:{
     type: Number,
