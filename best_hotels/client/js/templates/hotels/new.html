@@ -13,10 +13,10 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12 page-header">
-        <h3>Registrant:</h3>
+        <h3>Registrant</h3>
       </div>
         <div>
-          <form name="hotelForm" ng-submit="submitForm(.hotelForm.$valid)"novalidate>
+          <form name="hotelForm" ng-submit="submitForm(hotelForm.$valid)"novalidate>
             <div class="container">
              <div class="row">
               <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
@@ -40,11 +40,83 @@
                   <p ng-show="hotelForm.password.$error.minlength" class="help-block">Password is too short.</p>
                   <p ng-show="hotelForm.password.$error.maxlength" class="help-block">password is too long.</p>
                 </div>
+              </div><!-- row ends -->
+              <!-- HOTEL INFORMATION & DESCRIPTION -->
+                <div class="col-md-12 page-header">
+                  <h3>Hotel Info</h3>
+               </div>
+                  <div class="row">
+                    <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                       <label class="control-label" for="hotelname">Hotel Name</label>
+                       <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="12">
+                      <p ng-show="hotelForm.hotelname.$error.minlength" class="help-block">hotelname is too short, has to be more then two characters.</p>
+                      <p ng-show="hotelForm.hotelname.$error.maxlength" class="help-block">Hotelname is too long.</p>
+                    </div>
+                    <!-- STARS RATING -->
+                    <div class="form-group col-md-3" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                       <label class="control-label" for="hotelname">Stars rating</label>
+                       <!-- <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="12">
+                      <p ng-show="hotelForm.hotelname.$error.minlength" class="help-block">hotelname is too short, has to be more then two characters.</p>
+                      <p ng-show="hotelForm.hotelname.$error.maxlength" class="help-block">Hotelname is too long.</p> -->
+
+                      <!-- http://code.stephenmorley.org/html-and-css/star-rating-widget/ -->
+                      <div>
+                        <span class="starRating">
+                          <input id="rating5" type="radio" name="rating" value="5">
+                          <label for="rating5">5</label>
+                          <input id="rating4" type="radio" name="rating" value="4">
+                          <label for="rating4">4</label>
+                          <input id="rating3" type="radio" name="rating" value="3">
+                          <label for="rating3">3</label>
+                          <input id="rating2" type="radio" name="rating" value="2">
+                          <label for="rating2">2</label>
+                          <input id="rating1" type="radio" name="rating" value="1">
+                          <label for="rating1">1</label>
+                        </span>
+                      </div>
+                    </div>
+                 </div> <!--end hotel name--> 
+             <div class="row">
+               <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.address.$invalid && !hotelForm.address.$pristine ,'has-success' : hotelForm.address.$valid }">
+                     <label class="control-label" for="address">Address</label>
+                     <input autofocus type="text" name="address" class="form-control" ng-model="hotel.address" ng-required="true" id="address" ng-minlength="3" ng-maxlength="30">
+                    <p ng-show="hotelForm.address.$error.minlength" class="help-block">Required.</p>
+                </div>
+              </div> <!-- end row address -->
+              <div class="row">
+               <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.city.$invalid && !hotelForm.city.$pristine ,'has-success' : hotelForm.city.$valid }">
+                     <label class="control-label" for="city">City</label>
+                     <input autofocus type="text" name="city" class="form-control" ng-model="hotel.city" ng-required="true" id="city" ng-minlength="3" ng-maxlength="30">
+                    <p ng-show="hotelForm.city.$error.minlength" class="help-block">Required.</p>
+               </div>
+               <div class="form-group col-md-2" ng-class="{'has-error' : hotelForm.state.$invalid && !hotelForm.state.$pristine ,'has-success' : hotelForm.state.$valid }">
+                     <label class="control-label" for="state">State</label>
+                     <input autofocus type="text" name="state" class="form-control" ng-model="hotel.state" ng-required="true" id="state" ng-minlength="3" ng-maxlength="30">
+                    <p ng-show="hotelForm.state.$error.minlength" class="help-block">Required.</p>
+               </div>
+               <div class="form-group col-md-2" ng-class="{ 'has-error' : hotelForm.zip.$invalid && !hotelForm.zip.$pristine ,'has-success' : hotelForm.zip.$valid }">
+                    <label class="control-label" for="zip">Zip (5 digits)</label>
+                    <input type="number" id="zip" name="zip" class="form-control" ng-pattern="/^[0-9]{5}$/" ng-required="true" ng-model="hotel.zip">
+                    <p ng-show="hotelForm.zip.$invalid && !hotelForm.zip.$pristine" class="help-block">Enter a valid zip.</p>
               </div>
-            </div>   
+              </div> <!-- end row state -->
+               <div class="row">
+                <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine ,'has-success' : hotelForm.hotelemail.$valid }">
+                  <label class="control-label" for="hotelemail">Hotel Email</label>
+                  <input type="email" id="hotelemail" name="hotelemail" class="form-control" ng-required="true" ng-model="hotelemail.email">
+                  <p ng-show="hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine" class="help-block">Entered a valid email.</p>
+                </div>
+
+
+                 <div class="form-group col-md-3" ng-class="{ 'has-error' : hotelForm.phone.$invalid && !hotelForm.phone.$pristine ,'has-success' : hotelForm.phone.$valid }">
+                    <label class="control-label" for="phone">Phone Number (xxx)xxx-xxxx</label>
+                    <input type="" id="phone" name="phone" class="form-control" ng-required="true" ng-pattern="/^((((\(\d{3}\))|(\d{3}-))\d{3}-\d{4})|(\+?\d{2}((-| )\d{1,8}){1,5}))(( x| ext)\d{1,5}){0,1}$/" ng-model="phone">
+                    <p ng-show="hotelForm.phone.$invalid && !hotelForm.phone.$pristine" class="help-block">Valid phone nubmer required.</p>
+                </div>
+              </div>  
           </form>
         </div>  
-      </div>
+      </div><!-- end fist row -->
     </div>
 </body>
   

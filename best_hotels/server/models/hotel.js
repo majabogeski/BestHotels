@@ -11,16 +11,16 @@ var hotelSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  fullName:{
+  email:{
     type: String,
     required: true
   },
-  hotelName:{
+  hotelname:{
     type: String,
     required: true,
     unique: true
   },
-  hotelLocation:{
+  address:{
     type: String,
     required: true,
   },
@@ -48,7 +48,7 @@ var hotelSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  hotelEmail:{
+  hotelemail:{
     type: String,
     required: true
   },
