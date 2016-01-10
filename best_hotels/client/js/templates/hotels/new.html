@@ -106,14 +106,19 @@
                   <input type="email" id="hotelemail" name="hotelemail" class="form-control" ng-required="true" ng-model="hotelemail.email">
                   <p ng-show="hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine" class="help-block">Entered a valid email.</p>
                 </div>
-
-
-                 <div class="form-group col-md-3" ng-class="{ 'has-error' : hotelForm.phone.$invalid && !hotelForm.phone.$pristine ,'has-success' : hotelForm.phone.$valid }">
+                 <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.phone.$invalid && !hotelForm.phone.$pristine ,'has-success' : hotelForm.phone.$valid }">
                     <label class="control-label" for="phone">Phone Number (xxx)xxx-xxxx</label>
                     <input type="" id="phone" name="phone" class="form-control" ng-required="true" ng-pattern="/^((((\(\d{3}\))|(\d{3}-))\d{3}-\d{4})|(\+?\d{2}((-| )\d{1,8}){1,5}))(( x| ext)\d{1,5}){0,1}$/" ng-model="phone">
                     <p ng-show="hotelForm.phone.$invalid && !hotelForm.phone.$pristine" class="help-block">Valid phone nubmer required.</p>
                 </div>
-              </div>  
+              </div> 
+              <div class="row"> 
+                <div class="form-group col-md-8" ng-class="{ 'has-error' : hotelForm.description.$invalid && !hotelForm.description.$pristine ,'has-success' : hotelForm.description.$valid }" >
+                <label class="control-label" for="descrption" ng-model="hotel.description" ng-required="true" id="description" >Hotel Description</label>
+                  <textarea type="text"class="form-control" rows="3" id="description" name="description" ng-required="true" ng-model="hotel.description" ng-minlength="20" ng-maxlength="100"></textarea>
+                  <p ng-show="hotelForm.description.$error.minlength" class="help-block">  Description is too short, has to be more then 20 characters.</p>
+                </div>
+              </div>
           </form>
         </div>  
       </div><!-- end fist row -->
