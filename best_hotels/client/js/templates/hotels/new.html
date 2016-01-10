@@ -215,7 +215,7 @@
                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
                 </div>
               </div>
-              <div ng-show="additionalAmenites"><!-- WATCH THIS ONE -->
+              <div ng-show="additionalAmenites">
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
@@ -246,7 +246,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Carbon Monoxide Detector
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">   Jacuzzi 
                       </label>
                     </div>
                 </div>
@@ -280,14 +280,14 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Fire Extinguisher
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    TV
                       </label>
                     </div>
                 </div>
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">         First Aid Kit
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">     Suitable for Events         
                       </label>
                     </div>
                     <div class="form-group col-md-3">
@@ -348,7 +348,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Safety Card
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Wheelchair Accessible
                       </label>
                     </div>
                 </div>
@@ -360,7 +360,7 @@
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Smoke Detector
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Washer      
                       </label>
                     </div>
                     <div class="form-group col-md-3">
@@ -369,24 +369,51 @@
                       </label>
                     </div>
                 </div>
+              </div>
                 <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Hotel Safety</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Smoke Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox2" value="option2">  Carbon Monoxide Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3">  First Aid Kit
+                  </label>
+                </div> 
+                <div ng-click="hotelSafety=!hotelSafety">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="hotelSafety">
+                 <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Suitable for Events
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">   Safety Card 
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">       Wheelchair Accessible
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Fire Extinguisher
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Washer
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">  
                       </label>
                     </div>
                 </div>
-              </div>
+              </div>  
           </form>
         </div>  
       </div><!-- end fist row -->
