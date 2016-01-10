@@ -1,6 +1,7 @@
 .top{
   margin-top: 40px;
 }
+.big-checkbox {width: 250px; height: 250px;}
 /*.starRating:not(old){
   display        : inline-block;
   width          : 7.5em;

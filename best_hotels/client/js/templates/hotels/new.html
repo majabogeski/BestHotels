@@ -42,8 +42,10 @@
                 </div>
               </div><!-- row ends -->
               <!-- HOTEL INFORMATION & DESCRIPTION -->
+              <div class="row">
                 <div class="col-md-12 page-header">
                   <h3>Hotel Info</h3>
+                </div>
                </div>
                   <div class="row">
                     <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
@@ -117,6 +119,272 @@
                 <label class="control-label" for="descrption" ng-model="hotel.description" ng-required="true" id="description" >Hotel Description</label>
                   <textarea type="text"class="form-control" rows="3" id="description" name="description" ng-required="true" ng-model="hotel.description" ng-minlength="20" ng-maxlength="100"></textarea>
                   <p ng-show="hotelForm.description.$error.minlength" class="help-block">  Description is too short, has to be more then 20 characters.</p>
+                </div>
+              </div>
+              <!-- PRICE -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Pricing</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="sr-only" for="price">Amount (in dollars)</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">$</div>
+                       <input type="" class="form-control col-md-3" id="price" name="price" class="form-control" ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="price">
+                    </div>
+                    <div>
+                      <p ng-show="hotelForm.price.$invalid && !hotelForm.price.$pristine" class="help-block">Valid price nubmer required.</p>
+                    </div>
+                </div>
+              </div>
+            <!-- THE SPACE -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>The Space</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-2">
+                  <select class="form-control">
+                    <option>ACCOMMODATES</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option> 
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>  
+                  </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <select class="form-control">
+                    <option>HOTEL ROOM TYPES</option>
+                    <option>SINGLE ROOM </option>
+                    <option>DOUBLE ROOM</option>
+                    <option>TWIN ROOM</option>
+                    <option>INTERCONNECTING ROOMS</option>
+                    <option>ADJOINING ROOMS </option>
+                    <option>HOLLYWOOD TWIN ROOM</option>
+                    <option>DUPLEX</option>
+                    <option>CABANA</option>
+                    <option>STUDIO ROOM</option> 
+                    <option>SUITE ROOM</option>
+                    <option>KING BEDROOM</option>
+                    <option>QUEEN BEDROOM </option>
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <select class="form-control">
+                    <option>NUMBER OF BEDS</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option> 
+                    <option>6</option>
+                  </select>
+                </div>
+              </div><!-- the space row ends -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Amenities</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Wireless Internet
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox2" value="option2">  Pool
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3">  Kitchen
+                  </label>
+                </div> 
+                <div ng-click="additionalAmenites=!additionalAmenites">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="additionalAmenites"><!-- WATCH THIS ONE -->
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">    24-Hour Check-in
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Air Conditioning
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">  Breakfast
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Buzzer/Wireless Intercom
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Cable TV
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Carbon Monoxide Detector
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Doorman
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Dryer
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Elevator in Building
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">        Essentials
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Family/Kid Friendly
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Fire Extinguisher
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">         First Aid Kit
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Free Parking on Premises
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Gym
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">          Hangers
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Hot Tub
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Hair Dryer
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">            Heating
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Indoor Fireplace
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Internet
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">              Iron
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Pets Allowed
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Safety Card
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">              Shampoo
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Smoke Detector
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Smoking Allowed
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Suitable for Events
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">       Wheelchair Accessible
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Washer
+                      </label>
+                    </div>
                 </div>
               </div>
           </form>
