@@ -1,0 +1,52 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+  </div>
+</nav>  
+<body class="container">
+  <div class="container top">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Create a hotel listing</h2>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 page-header">
+        <h3>Registrant:</h3>
+      </div>
+        <div>
+          <form name="hotelForm" ng-submit="submitForm(.hotelForm.$valid)"novalidate>
+            <div class="container">
+             <div class="row">
+              <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                 <label class="control-label" for="hotelname">Username</label>
+                 <input autofocus type="text" name="username" class="form-control" ng-model="user.username" ng-required="true" id="username" ng-minlength="3" ng-maxlength="12">
+                <p ng-show="hotelForm.username.$error.minlength" class="help-block">Username is too short, has to be more then two characters.</p>
+                <p ng-show="hotelForm.username.$error.maxlength" class="help-block">username is too long.</p>
+              </div>
+             </div> 
+              <div class="row">
+                <div class="form-group col-md-6" ng-class="{ 'has-error' : hotelForm.email.$invalid && !hotelForm.email.$pristine ,'has-success' : hotelForm.email.$valid }">
+                  <label class="control-label" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" ng-required="true" ng-model="hotel.email">
+                  <p ng-show="hotelForm.email.$invalid && !hotelForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6" ng-class="{ 'has-error' : hotelForm.password.$invalid && !hotelForm.password.$pristine ,'has-success' : hotelForm.password.$valid }">
+                  <label class="control-label" for="password">Password</label>
+                  <input type="password" name="password" class="form-control" ng-model="hotel.password" id="password" ng-minlength="3" ng-maxlength="12" ng-required="true">
+                  <p ng-show="hotelForm.password.$error.minlength" class="help-block">Password is too short.</p>
+                  <p ng-show="hotelForm.password.$error.maxlength" class="help-block">password is too long.</p>
+                </div>
+              </div>
+            </div>   
+          </form>
+        </div>  
+      </div>
+    </div>
+</body>
+  
+
+
