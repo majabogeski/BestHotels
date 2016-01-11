@@ -370,7 +370,8 @@
                     </div>
                 </div>
               </div>
-                <div class="row">
+
+              <div class="row">
                 <div class="col-md-12 page-header">
                   <h3>Hotel Safety</h3>
                 </div>
@@ -413,11 +414,135 @@
                       </label>
                     </div>
                 </div>
-              </div>  
+              </div>
+               <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Property Type</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Hotel
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox2" value="option2">  House   
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="inlineCheckbox3" value="option3">  Bed & Breakfast
+                  </label>
+                </div> 
+                <div ng-click="propertyType=!propertyType">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="propertyType">
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Boat 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Bungalow
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Cabin
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Camper/RV 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Cave
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Chalet
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Condominium 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Villa
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Lighthouse
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Loft
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Tent
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Treehouse
+                      </label>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Add Photos</h3>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <input type="hidden" role="uploadcare-uploader"
+                  data-images-only="true"
+                  data-multiple="true"/>
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="form-group col-md-12 col-md-offset-2">
+                  <div class="form-group col-md-6 pull-right">
+                   <a href="#" class="myButton">submit</a> 
+                  </div>
+                  <div class="form-group col-md-2 pull-right">
+                   <a href="#" class="cancelButton">cancel</a> 
+                  </div>
+                </div>  
+              </div>
           </form>
         </div>  
       </div><!-- end fist row -->
     </div>
+<script>
+  UPLOADCARE_LOCALE = "en";
+  UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive box vk";
+  UPLOADCARE_PUBLIC_KEY = "4b66182859ad52a18eb0";
+</script>
+<script charset="utf-8" src="//ucarecdn.com/widget/2.5.9/uploadcare/uploadcare.full.min.js"></script>
 </body>
   
 
