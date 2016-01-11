@@ -5,15 +5,15 @@ app.config(function($routeProvider, $locationProvider,$httpProvider){
   $routeProvider
     .when('/',{
       templateUrl: "templates/hotels/index.html",
-      //controller: "HotelsController"
+      controller: "HotelsController"
     })
     .when('/hotels/new',{
       templateUrl: "templates/hotels/new.html",
-      //controller: "NewHotelController"
+      controller: "NewHotelController"
     })
     .when('/hotels/:id/edit',{
       templateUrl: "templates/hotels/edit.html",
-      //controller: "EditHotelController"
+      controller: "EditHotelController"
     })
     .otherwise({redirectTo: '/'});
 

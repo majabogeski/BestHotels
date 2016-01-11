@@ -16,12 +16,13 @@
         <h3>Registrant</h3>
       </div>
         <div>
-          <form name="hotelForm" ng-submit="submitForm(hotelForm.$valid)"novalidate>
+       <!--  ng-submit="submitForm(hotelForm.$valid)"novalidate -->
+          <form name="hotelForm" ng-submit="addHotel(hotel)" >
             <div class="container">
              <div class="row">
               <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
                  <label class="control-label" for="hotelname">Username</label>
-                 <input autofocus type="text" name="username" class="form-control" ng-model="user.username" ng-required="true" id="username" ng-minlength="3" ng-maxlength="12">
+                 <input autofocus type="text" name="username" class="form-control" ng-model="hotel.username" ng-required="true" id="username" ng-minlength="3" ng-maxlength="12">
                 <p ng-show="hotelForm.username.$error.minlength" class="help-block">Username is too short, has to be more then two characters.</p>
                 <p ng-show="hotelForm.username.$error.maxlength" class="help-block">username is too long.</p>
               </div>
@@ -57,22 +58,19 @@
                     <!-- STARS RATING -->
                     <div class="form-group col-md-3" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
                        <label class="control-label" for="hotelname">Stars rating</label>
-                       <!-- <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="12">
-                      <p ng-show="hotelForm.hotelname.$error.minlength" class="help-block">hotelname is too short, has to be more then two characters.</p>
-                      <p ng-show="hotelForm.hotelname.$error.maxlength" class="help-block">Hotelname is too long.</p> -->
 
                       <!-- http://code.stephenmorley.org/html-and-css/star-rating-widget/ -->
                       <div>
                         <span class="starRating">
-                          <input id="rating5" type="radio" name="rating" value="5">
+                          <input id="rating5" type="radio" ng-model="hotel.starRating" name="rating" value="5">
                           <label for="rating5">5</label>
-                          <input id="rating4" type="radio" name="rating" value="4">
+                          <input id="rating4" type="radio" ng-model="hotel.starRating" name="rating" value="4">
                           <label for="rating4">4</label>
-                          <input id="rating3" type="radio" name="rating" value="3">
+                          <input id="rating3" type="radio" ng-model="hotel.starRating" name="rating" value="3">
                           <label for="rating3">3</label>
-                          <input id="rating2" type="radio" name="rating" value="2">
+                          <input id="rating2" type="radio" ng-model="hotel.starRating" name="rating" value="2">
                           <label for="rating2">2</label>
-                          <input id="rating1" type="radio" name="rating" value="1">
+                          <input id="rating1" type="radio" ng-model="hotel.starRating" name="rating" value="1">
                           <label for="rating1">1</label>
                         </span>
                       </div>
@@ -98,19 +96,19 @@
                </div>
                <div class="form-group col-md-2" ng-class="{ 'has-error' : hotelForm.zip.$invalid && !hotelForm.zip.$pristine ,'has-success' : hotelForm.zip.$valid }">
                     <label class="control-label" for="zip">Zip (5 digits)</label>
-                    <input type="number" id="zip" name="zip" class="form-control" ng-pattern="/^[0-9]{5}$/" ng-required="true" ng-model="hotel.zip">
+                    <input type="number" id="zip" name="zip" class="form-control" ng-pattern="/^[0-9]{5}$/" ng-required="true" ng-model="hotel.zipcode">
                     <p ng-show="hotelForm.zip.$invalid && !hotelForm.zip.$pristine" class="help-block">Enter a valid zip.</p>
               </div>
               </div> <!-- end row state -->
                <div class="row">
                 <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine ,'has-success' : hotelForm.hotelemail.$valid }">
                   <label class="control-label" for="hotelemail">Hotel Email</label>
-                  <input type="email" id="hotelemail" name="hotelemail" class="form-control" ng-required="true" ng-model="hotelemail.email">
+                  <input type="email" id="hotelemail" name="hotelemail" class="form-control" ng-required="true" ng-model="hotelemail.hotelemail">
                   <p ng-show="hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine" class="help-block">Entered a valid email.</p>
                 </div>
                  <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.phone.$invalid && !hotelForm.phone.$pristine ,'has-success' : hotelForm.phone.$valid }">
                     <label class="control-label" for="phone">Phone Number (xxx)xxx-xxxx</label>
-                    <input type="" id="phone" name="phone" class="form-control" ng-required="true" ng-pattern="/^((((\(\d{3}\))|(\d{3}-))\d{3}-\d{4})|(\+?\d{2}((-| )\d{1,8}){1,5}))(( x| ext)\d{1,5}){0,1}$/" ng-model="phone">
+                    <input type="" id="phone" name="phone" class="form-control" ng-required="true" ng-pattern="/^((((\(\d{3}\))|(\d{3}-))\d{3}-\d{4})|(\+?\d{2}((-| )\d{1,8}){1,5}))(( x| ext)\d{1,5}){0,1}$/" ng-model="hotel.phone">
                     <p ng-show="hotelForm.phone.$invalid && !hotelForm.phone.$pristine" class="help-block">Valid phone nubmer required.</p>
                 </div>
               </div> 
@@ -132,7 +130,7 @@
                   <label class="sr-only" for="price">Amount (in dollars)</label>
                     <div class="input-group">
                       <div class="input-group-addon">$</div>
-                       <input type="" class="form-control col-md-3" id="price" name="price" class="form-control" ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="price">
+                       <input type="" class="form-control col-md-3" id="price" name="price" class="form-control" ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="hotel.price">
                     </div>
                     <div>
                       <p ng-show="hotelForm.price.$invalid && !hotelForm.price.$pristine" class="help-block">Valid price nubmer required.</p>
@@ -147,7 +145,7 @@
               </div>
               <div class="row">
                 <div class="form-group col-md-2">
-                  <select class="form-control">
+                  <select class="form-control" name="accommodates" id="accommodates" ng-model="hotel.accommodates">
                     <option>ACCOMMODATES</option>
                     <option>1</option>
                     <option>2</option>
@@ -162,7 +160,7 @@
                   </select>
                 </div>
                 <div class="form-group col-md-3">
-                  <select class="form-control">
+                  <select class="form-control" nema="hotelroomtypes" id="hotelroomtypes" ng-model="hotel.hotelroomtypes">
                     <option>HOTEL ROOM TYPES</option>
                     <option>SINGLE ROOM </option>
                     <option>DOUBLE ROOM</option>
@@ -179,7 +177,7 @@
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select class="form-control">
+                  <select class="form-control" name="bedNumber" id="bedNumber" ng-model="hotel.bedNumber"> 
                     <option>NUMBER OF BEDS</option>
                     <option>1</option>
                     <option>2</option>
@@ -198,17 +196,17 @@
               <div class="row">
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Wireless Internet
+                      <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.wirelessInternet]"> Wireless Internet
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox2" value="option2">  Pool
+                      <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.pool]">  Pool
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox3" value="option3">  Kitchen
+                      <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.kitchen]">  Kitchen
                   </label>
                 </div> 
                 <div ng-click="additionalAmenites=!additionalAmenites">
@@ -219,153 +217,153 @@
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">    24-Hour Check-in
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.hourCheckIn]">    24-Hour Check-in
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Air Conditioning
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.airConditioning]">    Air Conditioning
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">  Breakfast
-                      </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Buzzer/Wireless Intercom
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Cable TV
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">   Jacuzzi 
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.breakfast]" >  Breakfast
                       </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Doorman
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.buzzer]" >    Buzzer/Wireless Intercom
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Dryer
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.cableTv]">    Cable TV
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Elevator in Building
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.jacuzzi]">   Jacuzzi 
                       </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">        Essentials
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.doorman]">      Doorman
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Family/Kid Friendly
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.dryer]">    Dryer
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    TV
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.elevator]">    Elevator in Building
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.essentials]">        Essentials
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.family]">    Family/Kid Friendly
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.breakfast]">    tv
                       </label>
                     </div>
                 </div>
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">     Suitable for Events         
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.events]">     Suitable for Events         
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Free Parking on Premises
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.parking]">      Free Parking on Premises
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Gym
-                      </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">          Hangers
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Hot Tub
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Hair Dryer
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.gym]">    Gym
                       </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">            Heating
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.hangers]">          Hangers
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Indoor Fireplace
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.hotTub]">      Hot Tub
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Internet
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.hairDryer]">    Hair Dryer
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.heating]">            Heating
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.fireplace]">      Indoor Fireplace
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.internet]">    Internet
                       </label>
                     </div>
                 </div>
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">              Iron
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.breakfast]">              Iron
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Pets Allowed
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.pets]">        Pets Allowed
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Wheelchair Accessible
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.wheelchair]">    Wheelchair Accessible
                       </label>
                     </div>
                 </div>
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">              Shampoo
+                          <input type="checkbox" id="inlineCheckbox1" value="option1" ng-model="hotel[amenities.shampoo]">              Shampoo
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">        Washer      
+                          <input type="checkbox" id="inlineCheckbox2" value="option2" ng-model="hotel[amenities.washer]">        Washer      
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Smoking Allowed
+                          <input type="checkbox" id="inlineCheckbox3" value="option3" ng-model="hotel[amenities.smoking]">    Smoking Allowed
                       </label>
                     </div>
                 </div>
@@ -379,17 +377,17 @@
               <div class="row">
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Smoke Detector
+                      <input type="checkbox" id="inlineCheckbox1" value="hotelSafety" ng-model="hotel[hotelSafety.smokeDetector]">  Smoke Detector
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox2" value="option2">  Carbon Monoxide Detector
+                      <input type="checkbox" id="inlineCheckbox2" value="carbon" ng-model="hotel[hotelSafety.carbon]">  Carbon Monoxide Detector
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox3" value="option3">  First Aid Kit
+                      <input type="checkbox" id="inlineCheckbox3" value="aidKit" ng-model="hotel[hotelSafety.aidKit]">  First Aid Kit
                   </label>
                 </div> 
                 <div ng-click="hotelSafety=!hotelSafety">
@@ -400,17 +398,12 @@
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">   Safety Card 
+                          <input type="checkbox" id="inlineCheckbox1" value="safetyCard" ng-model="hotel[hotelSafety.safetyCard]">   Safety Card 
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Fire Extinguisher
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">  
+                          <input type="checkbox" id="inlineCheckbox2" value="fireExtinguisher" ng-model="hotel[hotelSafety.fireExtinguisher]">    Fire Extinguisher
                       </label>
                     </div>
                 </div>
@@ -423,17 +416,17 @@
               <div class="row">
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox1" value="option1">  Hotel
+                      <input type="checkbox" id="inlineCheckbox1" value="hotel" ng-model="hotel[propertyType.hotel]">  Hotel
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox2" value="option2">  House   
+                      <input type="checkbox" id="inlineCheckbox2" value="house" ng-model="hotel[propertyType.house]">  House   
                   </label>
                 </div>
                 <div class="form-group col-md-3">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="inlineCheckbox3" value="option3">  Bed & Breakfast
+                      <input type="checkbox" id="inlineCheckbox3" value="breakfast" ng-model="hotel[propertyType.breakfast]">  Bed & Breakfast
                   </label>
                 </div> 
                 <div ng-click="propertyType=!propertyType">
@@ -444,68 +437,68 @@
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Boat 
+                          <input type="checkbox" id="inlineCheckbox1" value="boat" ng-model="hotel[propertyType.boat]">    Boat 
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Bungalow
+                          <input type="checkbox" id="inlineCheckbox2" value="bungalow" ng-model="hotel[propertyType.bungalow]">    Bungalow
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">    Cabin
+                          <input type="checkbox" id="inlineCheckbox3" value="cabin" ng-model="hotel[propertyType.cabin]">    Cabin
                       </label>
                     </div>
                 </div>
                  <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Camper/RV 
+                          <input type="checkbox" id="inlineCheckbox1" value="camper" ng-model="hotel[propertyType.camper]">    Camper/RV 
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Cave
+                          <input type="checkbox" id="inlineCheckbox2" value="cave" ng-model="hotel[propertyType.cave]">    Cave
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Chalet
-                      </label>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">    Condominium 
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">    Villa
-                      </label>
-                    </div>
-                    <div class="form-group col-md-3">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Lighthouse
+                          <input type="checkbox" id="inlineCheckbox3" value="chalet" ng-model="hotel[propertyType.chalet]">      Chalet
                       </label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1">      Loft
+                          <input type="checkbox" id="inlineCheckbox1" value="condominium" ng-model="hotel[propertyType.condominium]">    Condominium 
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2">      Tent
+                          <input type="checkbox" id="inlineCheckbox2" value="villa" "hotel[propertyType.villa]" >    Villa
                       </label>
                     </div>
                     <div class="form-group col-md-3">
                       <label class="checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3">      Treehouse
+                          <input type="checkbox" id="inlineCheckbox3" value="lighthouse" "hotel[propertyType.lighthouse]">      Lighthouse
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox1" value="loft" "hotel[propertyType.loft]">      Loft
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="tent" "hotel[propertyType.tent]">      Tent
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" value="treehouse" "hotel[propertyType.treehouse]">      Treehouse
                       </label>
                     </div>
                 </div>
