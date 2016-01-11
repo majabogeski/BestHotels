@@ -20,6 +20,10 @@ var hotelSchema = new mongoose.Schema({
     required: true,
     unique: true
   },
+  starHotel:{
+    type: String,
+    required:  true
+  },
   address:{
     type: String,
     required: true,
@@ -36,27 +40,31 @@ var hotelSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  hotelemail:{
+    type: String,
+    required: true
+  },
   phone:{
     type: Number,
     required: true,
   },
-  starHotel:{
-    type: String,
-    required:  true
-  },
   bathrooms:{
     type: Number,
-    required: true
-  },
-  hotelemail:{
-    type: String,
     required: true
   },
   hotelDescription:{
     type: String,
     required: true
   },
-  bedType:{
+  price:{
+    type: Number,
+    required: true
+  },
+  accommodates:{
+      type: Number,
+      required: true
+  },
+  hotelroomtypes:{
     type: String,
     required: true
   },
@@ -64,21 +72,12 @@ var hotelSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  roomType:{
-    type: String,
-    required: true
-  },
   amenities:[{
     amenitie:{
       type: String
     }
   }],
-  aditionalAmenities:[{
-    aditionalAmenitie:{
-      type: String
-    }
-  }],
-  specialFutures:[{
+  propertyType:[{
     specialFuture:{
       type: String
     }
