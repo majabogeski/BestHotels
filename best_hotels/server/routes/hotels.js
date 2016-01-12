@@ -18,10 +18,11 @@ router.get('/',function(req,res){
 //CREATE POST /api/hotels/
 router.post('/',function(req,res){
   console.log("hello");
-  //console.log("THIS IS REQ BODY!", req.body);
+  console.log("THIS IS REQ BODY!", req.body);
   db.Hotel.create(req.body,function(error, hotel){
-    if (error) return res.status(400).send(error);
+    if (error) return res.status(400).send({error:error});
     //201 statu crated
+    console.log('IT WORKS!');
     res.status(201).send(hotel);
   });
 });

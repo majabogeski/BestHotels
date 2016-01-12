@@ -1,29 +1,19 @@
 app.service("HotelService", function($http){
   return{
-    getAllHotels: function(){
-      return $http.get("/api/hotels").then(function(resp){
-        return resp.data;
-      });
+    getHotels: function(){
+      return $http.get("/api/hotels");
     },
     addHotel: function(hotel){
-      return $http.post("/api/hotels,hotel").then(function(resp){
-        return resp.data;
-      });
+      return $http.post("/api/hotels", hotel);
     },
     editHotel: function(hotel){
-      return $http.put('/api/hotels/' + hotel._id, hotel).then(function(resp){
-        return resp.data;
-      });
+      return $http.put('/api/hotels/' + hotel._id, hotel);
     },
     getHotel: function(id) {
-      return  $http.get('/api/hotels/' + id).then(function(resp){
-        return resp.data;
-      });
+      return  $http.get('/api/hotels/' + id);
     },
     deleteHotel: function(id) {
-      return  $http.delete('/api/hotels/' + id).then(function(resp){
-        return resp.data;
-      });
-    },
+      return  $http.delete('/api/hotels/' + id);
+    }
   };
 });

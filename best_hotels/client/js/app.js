@@ -3,7 +3,7 @@ var app = angular.module("hotelsApp", ['ngRoute']);
 app.config(function($routeProvider, $locationProvider,$httpProvider){
 
   $routeProvider
-    .when('/',{
+    .when('/hotels',{
       templateUrl: "templates/hotels/index.html",
       controller: "HotelsController"
     })
@@ -15,7 +15,7 @@ app.config(function($routeProvider, $locationProvider,$httpProvider){
       templateUrl: "templates/hotels/edit.html",
       controller: "EditHotelController"
     })
-    .otherwise({redirectTo: '/'});
+    .otherwise({redirectTo: '/hotels'});
 
   $locationProvider.html5Mode(true);
 });
