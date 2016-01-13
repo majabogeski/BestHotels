@@ -45,3 +45,25 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
     });
   };
 });
+
+// app.controller("DisplayImagesController",function($scope, $location, $routeParams,HotelService){
+//     $scope.images = ["/images/beach.jpg","/images/beach1.jpg","/images/beach2.jpg","/images/gg.jpg","/images/ny.jpg","/images/sf.jpeg","/images/sf1.jpeg","/images/sf2.jpg","/images/sf3.jpg"];
+// });
+app.controller('SliderController', function($scope) {
+  $scope.images = [{
+    src: "kziAonV.gif",
+    title: 'Pic 1'
+  }, {
+    src: "Mountains.jpg",
+    title: 'Pic 2'
+  }, {
+    src: "watterfalls.jpg",
+    title: 'Pic 3'
+  }, {
+    src: "gg.jpg",
+    title: 'Pic 4'
+  }, {
+    src: "ny.jpg",
+    title: 'Pic 5'
+  }];
+});

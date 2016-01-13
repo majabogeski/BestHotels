@@ -1,4 +1,4 @@
-var app = angular.module("hotelsApp", ['ngRoute']);
+var app = angular.module("hotelsApp", ['ngRoute','ngAnimate']);
 
 app.config(function($routeProvider, $locationProvider,$httpProvider){
 
@@ -15,7 +15,11 @@ app.config(function($routeProvider, $locationProvider,$httpProvider){
       templateUrl: "templates/hotels/edit.html",
       controller: "EditHotelController"
     })
-    .otherwise({redirectTo: '/hotels'});
+    .when('/',{
+      templateUrl: "templates/hotels/home.html",
+      controller: "SliderController"
+    })
+    // .otherwise({redirectTo: '/hotels'});
 
   $locationProvider.html5Mode(true);
 });

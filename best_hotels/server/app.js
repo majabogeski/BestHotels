@@ -7,6 +7,7 @@
 
   app.use('/css',express.static(path.join(__dirname, '../client/css')));
   app.use('/js',express.static(path.join(__dirname, '../client/js')));
+  app.use('/images',express.static(path.join(__dirname, '../client/images')));
   app.use('/templates',express.static(path.join(__dirname, '../client/js/templates')));
   app.use(morgan('tiny'));
   app.use(bodyParser.json());
@@ -22,6 +23,3 @@
   app.listen(3000, function(){
     console.log("Server starting on port 3000");
   });
-
-  
-
