@@ -4,9 +4,6 @@ mongoose.connect("mongodb://localhost/hotelsTest");
 
 
 
-
-
-
 module.exports.Hotel = require("./hotel");
 
 

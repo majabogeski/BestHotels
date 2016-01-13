@@ -1,16 +1,20 @@
 .top{
   margin-top: 40px;
 }
+.white{
+  color:white;
+}
 
 .bigimg{
   width: 100%;
-  height: 600px;
+  /*height: 600px;*/
+  height: 550px;
   /*z-index: -2;*/
 }
 #sbox{
   position: relative;
-  margin-top: 520px;
-
+  /*margin-top: 520px;*/
+  margin-top: 470px;
   margin-left: 0px;
   margin-right: 0px;
   height: 80px;
@@ -21,11 +25,51 @@
   clear: both;
   float:right;
    /*filter: alpha(opacity=60);*/
+}
+
+
+.navig{
+  position: absolute;
+ 
+  right: 0; /*you can do this bc. of absolut position*/
+}
+
+.navleft{
+  position: absolute;
+  margin-top: 3px;
 
 }
+.logo{
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+.nav>li>a {
+  color: white;
+}
+ ul{
+  list-style-type: none;
+  right: 0;
+  }
+
+ li{
+  float: right;
+ }
+
+ li a{ 
+  display: block;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+
+
 #search{
   position: absolute;
-  margin-top: 540px;
+
+  /*margin-top: 540px;*/
+  margin-top: 490px;
   width: 100%;
  /* z-index: 0;*/
 }

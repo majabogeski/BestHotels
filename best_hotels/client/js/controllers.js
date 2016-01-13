@@ -51,6 +51,9 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
 // });
 app.controller('SliderController', function($scope) {
   $scope.images = [{
+    src: "yosemite.jpg",
+    title: 'Pic 3'
+  }, {
     src: "bahamas.jpg",
     title: 'Pic 1'
   }, {
