@@ -50,6 +50,18 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
 //     $scope.images = ["/images/beach.jpg","/images/beach1.jpg","/images/beach2.jpg","/images/gg.jpg","/images/ny.jpg","/images/sf.jpeg","/images/sf1.jpeg","/images/sf2.jpg","/images/sf3.jpg"];
 // });
 app.controller('SliderController', function($scope) {
+  $scope.options = [
+    {name: '1 Guest'},
+    {name: '2 Guests'},
+    {name: '3 Guests'},
+    {name: '4 Guests'},
+    {name: '5 Guests'},
+    {name: '6 Guests'},
+    {name: '7 Guests'},
+    {name: '8 Guests'},
+    {name: '9 Guests'},
+    {name: '10+ Guests'}
+  ];
   $scope.images = [{
     src: "yosemite.jpg",
     title: 'Pic 3'

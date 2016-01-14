@@ -31,18 +31,7 @@
                 <input autofocus type="date" name="search" class="form-control" ng-model="calendar1">
               </div>
               <div class="form-group col-md-2">
-                      <select class="form-control" name="guest" id="guest" ng-model="guest"  placeholder="Where do ?"> 
-                        <option value="1 Guest">1 Guest</option>
-                        <option value="2 Guests"selected>2 Guests</option>
-                        <option value="3 Guests">3 Guests</option>
-                        <option value="4 Guests">4 Guests</option>
-                        <option value="5 Guests">5 Guests</option> 
-                        <option value="6 Guests">6 Guests</option>
-                        <option value="7 Guests">7 Guests</option>
-                        <option value="8 Guests">8 Guests</option>
-                        <option value="9 Guests">9 Guests</option>
-                        <option value="9 Guests">10 Guests</option>
-                        <option value="9 Guests">11+ Guests</option>
+                      <select class="form-control" name="guest" id="guest" ng-model="guest" ng-options="option.name for option in options" ng-init="guest = options[1]"> 
                       </select>
               </div>
               <div class="form-group col-md-2">

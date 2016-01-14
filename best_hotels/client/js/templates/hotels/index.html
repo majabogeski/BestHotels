@@ -24,7 +24,7 @@
  -->
   <div class="navbar-header">
     <ul>
-      <li role="presentation" class="logoindex"><a href="#" class="logoindexhref" >bestHotels</a></li>
+      <li role="presentation" class="logoindex"><a href="#" id="navblack" class="logoindexhref" >bestHotels</a></li>
     </ul>
   </div>
   <div class="form-group col-md-4 searchindex" ng-class="search">
@@ -32,7 +32,7 @@
   </div>
   <div>
        
-   <ul class="nav navbar-nav pull-left">
+   <ul class="nav navbar-nav pull-right">
       <li><a href="#">My Favorites</a></li>
       <li><a href="#">User Name</a></li>
    </ul>
@@ -74,18 +74,10 @@
   </div> 
  </div>    
  <!--  DIFFRENT RANGE SLIDERS -->
- <!--  <b>€ 10</b> <input id="ex2" type="text" class="span2" value="" data-slider-min="10" data-slider-max="1000" data-slider-step="5" data-slider-value="[250,450]"/> <b>€ 1000</b> -->
-     <!-- <label for="weight">Weight</label>
-     <input type="range" id="weight" min="10" value="10" max="2000" step="100"> 
-     <input type="range" min="20" max="80" />  
-        <div class="sliderExample">
-                <strong>Step slider</strong>
-                <div ui-slider="{range: 'min'}" min="0" max="50" ng-model="demoVals.slider"></div>
-                <p>The value so far is:
-                <span ng-bind="demoVals.slider"></span></p>
-                <p>The calculated value is: <input type="text" ng-model="calculated" value=" {{ calculated }}" placeholder=0 /></p>
-                
-        </div>   -->
+ <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+   
+ </div>
+  
 
        <!-- ****** AMENITIES****** -->
 <div class="container-fluid">

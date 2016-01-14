@@ -84,12 +84,7 @@
 
 /**************INDEX PAGE NAVIGATIN BAR***************/
 /**/
-input[type="range"]:before {
-    content: attr(min) " ";
-}
-input[type="range"]:after {
-    content: " " attr(max);
-}
+
 .colindex{
   width: 50px;
 }
@@ -100,6 +95,10 @@ input[type="range"]:after {
   margin-top: 490px;
   width: 100%;
  /* z-index: 0;*/
+}
+#navblack{
+  color: black;
+  margin-left: -40px;
 }
 /*sliding images*/
 .slide.ng-hide-add,
