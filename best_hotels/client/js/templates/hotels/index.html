@@ -74,11 +74,17 @@
   </div> 
  </div>    
  <!--  DIFFRENT RANGE SLIDERS -->
- <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
-   
- </div>
-  
-
+ <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-md-1" >
+          <h6>Price Range</h6>
+      </div>
+      <div class="form-group col-md-6">
+         <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+         </div>
+      </div> 
+    </div>  
+  </div>
        <!-- ****** AMENITIES****** -->
 <div class="container-fluid">
        <div class="row">
