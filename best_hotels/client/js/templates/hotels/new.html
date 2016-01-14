@@ -53,7 +53,7 @@
                   <div class="row">
                     <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
                        <label class="control-label" for="hotelname">Hotel Name</label>
-                       <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="12">
+                       <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="18">
                       <p ng-show="hotelForm.hotelname.$error.minlength" class="help-block">hotelname is too short, has to be more then two characters.</p>
                       <p ng-show="hotelForm.hotelname.$error.maxlength" class="help-block">Hotelname is too long.</p>
                     </div>
@@ -118,7 +118,7 @@
               <div class="row"> 
                 <div class="form-group col-md-8" ng-class="{ 'has-error' : hotelForm.description.$invalid && !hotelForm.description.$pristine ,'has-success' : hotelForm.description.$valid }" >
                 <label class="control-label" for="descrption" ng-model="hotel.description" ng-required="true" id="description" >Hotel Description</label>
-                  <textarea type="text"class="form-control" rows="3" id="description" name="description" ng-required="true" ng-model="hotel.description" ng-minlength="20" ng-maxlength="100"></textarea>
+                  <textarea type="text"class="form-control" rows="3" id="description" name="description" ng-required="true" ng-model="hotel.description" ng-minlength="20" ng-maxlength="6000"></textarea>
                   <p ng-show="hotelForm.description.$error.minlength" class="help-block">  Description is too short, has to be more then 20 characters.</p>
                 </div>
               </div>
