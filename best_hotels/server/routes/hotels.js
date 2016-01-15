@@ -4,9 +4,15 @@ db = require("../models");
 
 //INDEX GET /api/hotels/
 router.get('/',function(req,res){
-  db.Hotel.find({},function(err,hotels){
-    res.status(200).send(hotels);
-  });
+  db.Hotel.find(
+        { $text : { $search : req.query.destination } }, 
+        { score : { $meta: "textScore" } }
+    )
+    .sort({ score : { $meta : 'textScore' } })
+    .exec(function(err, hotels) {
+        console.log(hotels);
+        res.status(200).send(hotels);
+    });
 });
 // router.post('/',function(req,res){
 //   db.Hotel.create(req.body,function(error){

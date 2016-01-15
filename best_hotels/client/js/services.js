@@ -1,7 +1,7 @@
 app.service("HotelService", function($http){
   return{
-    getHotels: function(){
-      return $http.get("/api/hotels");
+    getHotels: function(location){
+      return $http.get("/api/hotels?destination="+encodeURIComponent(location));
     },
     addHotel: function(hotel){
       return $http.post("/api/hotels", hotel);

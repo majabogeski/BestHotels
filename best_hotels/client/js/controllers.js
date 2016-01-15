@@ -1,5 +1,6 @@
-app.controller("HotelsController", function($scope, HotelService){
-  HotelService.getHotels().then(function(hotels){
+app.controller("HotelsController", function($scope, HotelService,$location){
+  // console.log($location.search());
+  HotelService.getHotels($location.search().destination).then(function(hotels){
     $scope.hotels = hotels.data;
   }).catch(function(err){
     $scope.errors = err; 
@@ -49,7 +50,12 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
 // app.controller("DisplayImagesController",function($scope, $location, $routeParams,HotelService){
 //     $scope.images = ["/images/beach.jpg","/images/beach1.jpg","/images/beach2.jpg","/images/gg.jpg","/images/ny.jpg","/images/sf.jpeg","/images/sf1.jpeg","/images/sf2.jpg","/images/sf3.jpg"];
 // });
-app.controller('SliderController', function($scope) {
+app.controller('SliderController', function($scope,$location) {
+   $scope.searchHotel = function(location){
+     $scope.location={};
+     $location.url("/hotels?destination="+ encodeURIComponent(location.search));
+    };
+
   $scope.options = [
     {name: '1 Guest'},
     {name: '2 Guests'},

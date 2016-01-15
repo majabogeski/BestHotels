@@ -132,7 +132,10 @@ var hotelSchema = new mongoose.Schema({
     }
   }]
  
- });
+ })
+.index({
+  'city':'text'
+});
 
 var Hotel = mongoose.model("Hotel", hotelSchema);
 module.exports = Hotel;
