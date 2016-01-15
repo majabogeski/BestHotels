@@ -1,6 +1,7 @@
 app.controller("HotelsController", function($scope, HotelService,$location){
   // console.log($location.search());
   HotelService.getHotels($location.search().destination).then(function(hotels){
+    console.log(hotels);
     $scope.hotels = hotels.data;
   }).catch(function(err){
     $scope.errors = err; 

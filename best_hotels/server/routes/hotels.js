@@ -5,7 +5,7 @@ db = require("../models");
 //INDEX GET /api/hotels/
 router.get('/',function(req,res){
   db.Hotel.find(
-        { $text : { $search : req.query.destination } }, 
+        { $text : { $search : req.query.destination } }, //http://stackoverflow.com/questions/24714166/full-text-search-with-weight-in-mongoose
         { score : { $meta: "textScore" } }
     )
     .sort({ score : { $meta : 'textScore' } })

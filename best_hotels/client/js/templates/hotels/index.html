@@ -439,3 +439,17 @@
                 </div>
               </div>
 </div><!-- closing container fluid -->
+<div>
+<!--   <h1>{{hotels[0].hotelname}}</h1>
+<p>{{hotels.starRating}}</p>
+<p>{{hotels.city}}</p> -->
+<div ng-repeat=" hotel in hotels">
+  {{hotel.hotelname}}
+  {{hotel.city}}
+
+  <div ng-repeat="(key,value) in hotel.amenities">
+  <div ng-show="value==true">{{key}}:{{value}}</div>
+     
+  </div>
+</div>
+</div>
