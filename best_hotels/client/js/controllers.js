@@ -9,6 +9,15 @@ app.controller("HotelsController", function($scope, HotelService,$location){
 });
 
 app.controller("NewHotelController", function($scope, $location, HotelService){
+  $scope.onUCUploadComplete = function(info){
+   console.log(info);
+   $scope.hotel.photos=[];
+   for (var i = 0; i < info.count; i++){
+    $scope.hotel.photos.push(info.cdnUrl + "nth/"+i+"/");
+   }
+   // console.log($scope.photos);
+  };
+  
   $scope.addHotel = function(hotel){
     HotelService.addHotel(hotel).then(function(res) {
       $location.path('/hotels');

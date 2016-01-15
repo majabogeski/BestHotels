@@ -513,9 +513,23 @@
               </div> 
               <div class="row">
                 <div class="form-group col-md-3">
-                  <input type="hidden" ng-model="hotel.photos" role="uploadcare-uploader"
+                 <!--  <input type="hidden" ng-model="hotel.photos" role="uploadcare-uploader"
                   data-images-only="true"
-                  data-multiple="true"/>
+                  data-multiple="true"/> -->
+                  <input
+                      uploadcare-widget
+                      
+                      data-public-key="4b66182859ad52a18eb0"
+                      data-tabs="file url"
+                      data-images-only="true"
+                      data-preview-step="true"
+                      data-clearable="true"
+                      data-multiple="true"
+                      data-crop="400:200"
+                      on-upload-complete="onUCUploadComplete(info)"
+                      on-widget-ready="onUCWidgetReady(widget)"
+                      
+ />
                 </div>
               </div>
               <br>
@@ -533,12 +547,9 @@
         </div>  
       </div><!-- end fist row -->
     </div>
-<script>
-  UPLOADCARE_LOCALE = "en";
-  UPLOADCARE_TABS = "file url facebook gdrive dropbox instagram evernote flickr skydrive box vk";
-  UPLOADCARE_PUBLIC_KEY = "4b66182859ad52a18eb0";
-</script>
-<script charset="utf-8" src="//ucarecdn.com/widget/2.5.9/uploadcare/uploadcare.full.min.js"></script>
+
+
+
   
 
 

@@ -126,10 +126,9 @@ var hotelSchema = new mongoose.Schema({
     treehouse:{type: Boolean, default: false} 
   },
   photos:[{
-    photo:{
+    
       type: String,
       required: true
-    }
   }]
  
  })

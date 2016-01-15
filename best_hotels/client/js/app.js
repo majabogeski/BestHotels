@@ -1,4 +1,4 @@
-var app = angular.module("hotelsApp", ['ngRoute','ngAnimate','ui.slider']);
+var app = angular.module("hotelsApp", ['ngRoute','ngAnimate','ui.slider','ng-uploadcare']);
 
 app.config(function($routeProvider, $locationProvider,$httpProvider){
 
