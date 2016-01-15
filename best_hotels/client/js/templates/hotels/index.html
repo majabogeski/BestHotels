@@ -444,12 +444,29 @@
 <p>{{hotels.starRating}}</p>
 <p>{{hotels.city}}</p> -->
 <div ng-repeat=" hotel in hotels">
-  {{hotel.hotelname}}
-  {{hotel.city}}
+  <p>hotelName {{hotel.hotelname}}</p>
+  <p>city {{hotel.city}}</p>
+  <p>price {{hotel.price}}</p>
+  <p>accommodates {{hotel.accommodates}}</p>
+  <p>description {{hotel.description}}</p>
+  <p>hotel Email {{hotel.email}}</p>
+  <p>address {{hotel.address}}</p>
+  <p>room type {{hotel.hotelroomtypes}}</p>
+  <p>state {{hotel.state}}</p>
+  <p>zip {{hotel.zip}}</p>
+  <p>star rating {{hotel.starRating}}</p>
+  <p>phone {{hotel.phone}}</p>
+   <img ng-src="{{hotel.photos}}" alt="hotel"></p>
+    
+    <!-- <div ng-repeat="photo in hotel.photos">
+      <img ng-src="{{photo.photos}}">
+    </div> -->
 
-  <div ng-repeat="(key,value) in hotel.amenities">
-  <div ng-show="value==true">{{key}}:{{value}}</div>
-     
-  </div>
+    <div ng-repeat="(key,value) in hotel.amenities">
+      <div ng-show="value==true">{{key}}:{{value}}</div>
+    </div>
+    <div ng-repeat="(key,value) in hotel.hotelSafety">
+      <div ng-show="value==true">{{key}}:{{value}}</div>
+    </div>
 </div>
 </div>
