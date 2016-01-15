@@ -3,7 +3,7 @@
   bodyParser = require("body-parser"),
   path = require("path"),
   morgan = require("morgan"),
-  router = require('./routes');
+  routes = require('./routes');
 
   app.use('/css',express.static(path.join(__dirname, '../client/css')));
   app.use('/js',express.static(path.join(__dirname, '../client/js')));
@@ -12,7 +12,8 @@
   app.use(morgan('tiny'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended:true}));
-  app.use('/api/hotels/', router.hotels);
+  app.use('/api/hotels/', routes.hotels);
+  app.use('/api/auth/', routes.auth);
 
 
   //on the bootom
