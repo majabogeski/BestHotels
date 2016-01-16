@@ -18,7 +18,7 @@
   app.use('/auth', routes.auth);
 
 
-  //on the bootom
+ 
   app.get("*", function(req,res){
     res.sendFile(path.join(__dirname, '../client', 'index.html'));
   });

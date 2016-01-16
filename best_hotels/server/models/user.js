@@ -7,6 +7,10 @@ var userSchema = new mongoose.Schema({
   displayName: String,
   picture: String,
   facebook: String,
+  hotels: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Hotel"
+    }]
 });
 
 userSchema.pre('save', function(next) {

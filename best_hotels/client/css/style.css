@@ -30,6 +30,10 @@
   /*height: 150px;
   width: 150px;*/
   border-radius: 50%;
+  border-style: solid;
+  border-color: #FF7535;
+ /* border-color: #BFBFBF;*/
+  border-width: 4px;
 }
 
 
