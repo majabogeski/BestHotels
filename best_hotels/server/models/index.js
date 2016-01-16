@@ -1,6 +1,6 @@
 var mongoose = require("mongoose");
 mongoose.set("debug",true);
-mongoose.connect("mongodb://localhost/hotelsTest");
+mongoose.connect("mongodb://localhost/hotels2");
 
 
 
