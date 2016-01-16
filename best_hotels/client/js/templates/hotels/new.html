@@ -21,8 +21,8 @@
        <!--  ng-submit="submitForm(hotelForm.$valid)"novalidate -->
           <form name="hotelForm" ng-submit="addHotel(hotel)" >
             <div class="container">
-             <div class="row">
-              <!-- <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+<!--              <div class="row">
+              <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
                  <label class="control-label" for="hotelname">Username</label>
                  <input autofocus type="text" name="username" class="form-control" ng-model="hotel.username" ng-required="true" id="username" ng-minlength="3" ng-maxlength="12">
                 <p ng-show="hotelForm.username.$error.minlength" class="help-block">Username is too short, has to be more then two characters.</p>
@@ -43,7 +43,7 @@
                   <p ng-show="hotelForm.password.$error.minlength" class="help-block">Password is too short.</p>
                   <p ng-show="hotelForm.password.$error.maxlength" class="help-block">password is too long.</p>
                 </div>
-              </div><!-- row ends -->
+              </div>
               <!-- HOTEL INFORMATION & DESCRIPTION -->
               <div class="row">
                 <div class="col-md-12 page-header">

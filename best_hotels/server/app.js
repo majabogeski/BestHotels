@@ -1,3 +1,5 @@
+  require("dotenv").load();
+  
   var express = require("express"),
   app = express(),
   bodyParser = require("body-parser"),
@@ -12,8 +14,8 @@
   app.use(morgan('tiny'));
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({extended:true}));
-  app.use('/api/hotels/', routes.hotels);
-  app.use('/api/auth/', routes.auth);
+  app.use('/api/hotels', routes.hotels);
+  app.use('/auth', routes.auth);
 
 
   //on the bootom

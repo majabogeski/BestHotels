@@ -60,11 +60,16 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
 // app.controller("DisplayImagesController",function($scope, $location, $routeParams,HotelService){
 //     $scope.images = ["/images/beach.jpg","/images/beach1.jpg","/images/beach2.jpg","/images/gg.jpg","/images/ny.jpg","/images/sf.jpeg","/images/sf1.jpeg","/images/sf2.jpg","/images/sf3.jpg"];
 // });
-app.controller('SliderController', function($scope,$location) {
-   $scope.searchHotel = function(location){
-     $scope.location={};
-     $location.url("/hotels?destination="+ encodeURIComponent(location.search));
-    };
+app.controller('SliderController', function($scope,$location,$auth) {
+  // Get user information from the token
+  if ($auth.getPayload()) {
+    $scope.user = $auth.getPayload().user;
+  }
+
+  $scope.searchHotel = function(location){
+   $scope.location={};
+   $location.url("/hotels?destination="+ encodeURIComponent(location.search));
+  };
 
   $scope.options = [
     {name: '1 Guest'},
@@ -97,4 +102,79 @@ app.controller('SliderController', function($scope,$location) {
     src: "ny.jpg",
     title: 'Pic 5'
   }];
+});
+
+app.controller("LoginController", function($scope, $auth, $location){
+  $scope.login = function() {
+    $auth.login($scope.user)
+      .then(function(response) {
+        $auth.setToken(response);
+        $location.path('/hotels/new');
+        console.log('You have successfully signed-in');
+      })
+      .catch(function(response) {
+        console.log(response.data.message);
+      });
+  };
+  $scope.authenticate = function(provider) {
+    $auth.authenticate(provider)
+      .then(function() {
+        console.log('You have successfully signed in with ' + provider + '!');
+        $location.path('/hotels/new');
+      })
+      .catch(function(error) {
+        if (error.error) {
+          // Popup error - invalid redirect_uri, pressed cancel button, etc.
+          console.log(error.error);
+        } else if (error.data) {
+          // HTTP response error from server
+          console.log(error.data.message, error.status);
+        } else {
+          console.log(error);
+        }
+      });
+  };
+});
+
+
+app.controller('LogoutController', function($location, $auth) {
+  if (!$auth.isAuthenticated()) { return; }
+  $auth.logout()
+    .then(function() {
+      console.log('You have been logged out');
+      $location.path('/');
+    });
+});
+
+
+app.controller('SignupController', function($scope, $location, $auth) {
+  $scope.signup = function() {
+    $auth.signup($scope.user)
+      .then(function(response) {
+        $auth.setToken(response);
+        $location.path('/hotels/new');
+        console.log('You have successfully created a new account and have been signed-in');
+      })
+      .catch(function(response) {
+        console.log(response.data.message);
+      });
+  };
+  $scope.authenticate = function(provider) {
+    $auth.authenticate(provider)
+      .then(function() {
+        console.log('You have successfully signed in with ' + provider + '!');
+        $location.path('/hotels/new');
+      })
+      .catch(function(error) {
+        if (error.error) {
+          // Popup error - invalid redirect_uri, pressed cancel button, etc.
+          console.log(error.error);
+        } else if (error.data) {
+          // HTTP response error from server
+          console.log(error.data.message, error.status);
+        } else {
+          console.log(error);
+        }
+      });
+  };
 });
