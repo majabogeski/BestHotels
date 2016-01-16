@@ -53,26 +53,11 @@
       <input autofocus type="date" name="search" class="form-control" ng-model="calendar1">
     </div>
     <div class="form-group col-md-2">
-            <select class="form-control" name="guest" id="guest" ng-model="guest"  placeholder="Where do ?"> 
-              <option value="1 Guest">1 Guest</option>
-              <option value="2 Guests"selected>2 Guests</option>
-              <option value="3 Guests">3 Guests</option>
-              <option value="4 Guests">4 Guests</option>
-              <option value="5 Guests">5 Guests</option> 
-              <option value="6 Guests">6 Guests</option>
-              <option value="7 Guests">7 Guests</option>
-              <option value="8 Guests">8 Guests</option>
-              <option value="9 Guests">9 Guests</option>
-              <option value="9 Guests">10 Guests</option>
-              <option value="9 Guests">11+ Guests</option>
+            <select class="form-control" name="guest" id="guest" ng-model="guest" ng-options="option.name for option in options" ng-init="guest = options[1]"> 
             </select>
     </div>
-               <!--  <div class="form-group col-md-2">
-                     <input type="submit" value="Search" class="searchButton">
-                </div> -->
-           
   </div> 
- </div>    
+ </div>
  <!--  DIFFRENT RANGE SLIDERS -->
  <div class="container-fluid">
     <div class="row">
@@ -85,8 +70,23 @@
       </div> 
     </div>  
   </div>
+  <!-- FILTER BUTTON --> 
+  <!-- ASK QUESTION HOW CAN YOU HIDE SHOW FILTER AND SHOW NO FILLTER SO IT MAKES MORE SENCE UX -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-md-2" ng-click="allFilters=!allFilters" >
+           <input type="submit" value="More Filters" ng-class="filter" ng-show="showhide=!showhide">
+      </div>
+    </div>
+    <div class="row">
+      <div class="form-group col-md-2" ng-show="">
+           <input type="submit" value="No Filters" class="filter" ng-click="allFilters" ng-show="showhide=!showhide">
+      </div>
+    </div>
+</div> 
        <!-- ****** AMENITIES****** -->
 <div class="container-fluid">
+ <div ng-show="allFilters">
        <div class="row">
           <div class="form-group col-md-1" >
              <h6>Amenities</h6>
@@ -438,6 +438,7 @@
                     </div>
                 </div>
               </div>
+  </div>
 </div><!-- closing container fluid -->
 <div>
 <!--   <h1>{{hotels[0].hotelname}}</h1>

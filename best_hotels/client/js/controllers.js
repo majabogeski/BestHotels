@@ -1,5 +1,16 @@
 app.controller("HotelsController", function($scope, HotelService,$location){
-  // console.log($location.search());
+  $scope.options = [
+    {name: '1 Guest'},
+    {name: '2 Guests'},
+    {name: '3 Guests'},
+    {name: '4 Guests'},
+    {name: '5 Guests'},
+    {name: '6 Guests'},
+    {name: '7 Guests'},
+    {name: '8 Guests'},
+    {name: '9 Guests'},
+    {name: '10+ Guests'}
+  ];
   HotelService.getHotels($location.search().destination).then(function(hotels){
     console.log(hotels);
     $scope.hotels = hotels.data;
