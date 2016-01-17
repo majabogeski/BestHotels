@@ -11,9 +11,23 @@ app.controller("HotelsController", function($scope, HotelService,$location){
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
+
   HotelService.getHotels($location.search().destination).then(function(hotels){
-    console.log(hotels);
+    // console.log(hotels);
+    // console.log(hotels.photos);
     $scope.hotels = hotels.data;
+    // $scope.photos = hotels.photos;
+    // console.log(photos);
+   //  $scope.hotel.photos =[];
+   //  for (var i = 0; i < hotel.data; i++){
+   //  $scope.hotel.photos.push(info.cdnUrl + "nth/"+i+"/");
+   // }
+   // console.log($scope.hotel.photos);
+   //  for (var  = 0; i < info.count; i++){
+   //   $scope.images.push(info.cdnUrl + "nth/"+i+"/");
+   // }
+
+   
   }).catch(function(err){
     $scope.errors = err; 
   });
