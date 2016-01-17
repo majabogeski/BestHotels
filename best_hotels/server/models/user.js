@@ -12,7 +12,6 @@ var userSchema = new mongoose.Schema({
       ref: "Hotel"
     }]
 });
-
 userSchema.pre('save', function(next) {
   var user = this;
   if (!user.isModified('password')) {

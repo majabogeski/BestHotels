@@ -1,40 +1,42 @@
 <!-- <div>
   <img src="./images/logoblack.png" alt="Smiley face" height="42" width="42">
 </div> -->
-<div class="navleft">
+<!-- <div class="navleft">
  <div class="navbar-header">
     <ul>
       <li role="presentation" class="logo"><a class="black" href="#">bestHotels</a></li>
       </li>
     </ul>
   </div>
-</div>
+</div> -->
 <!--   ***************** -->
-<div class="navbar navbar-default">
-  <div class="container-fluid">
+  <nav>
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <ul>
+                <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" >bestHotels</a>
+                </li>
 
-  <div class="navbar-header">
-    <ul>
-      <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" >bestHotels</a>
-      </li>
-      <li role="presentation" class="pull-right"><a ng-href="auth/login.html"  >LogIn</a>
-      </li>
-    </ul>
-  </div>
-  <div class="form-group col-md-4 searchindex" ng-class="search">
-      <input autofocus type="text" name="search" class="form-control" ng-model="search" placeholder="Where do you want to go?">
-  </div>
-  <div>
-       
-   <ul class="nav navbar-nav pull-right">
-   <li role="presentation" class="pull-right"><a ng-href="auth/login.html">LogIn</a>
-      <li><a href="#">My Favorites</a></li>
-      <li><a href="#">User Name</a></li>
-   </ul>
-  </div>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</div>
+              </ul>
+            </div>
+            <div class="form-group col-md-4 searchindex" ng-class="search">
+                <input autofocus type="text" name="search" class="form-control" ng-model="search" placeholder="Where do you want to go?">
+            </div>
+               <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">My Favorites</a></li>
+                    <li><a href="#">User Name</a></li>
+                    <li role="presentation" class="pull-right"><a ng-href="templates/auth/login.html">LogIn</a>
+                    </li>
+                     <li role="presentation" class="pull-right"><a ng-href="/templates/auth/login.html">Logout</a>
+                </li>
+               </ul>
+        </div><!-- /.container-fluid -->
+    </div>
+  </nav>
+  
+
+
 
 <div class="container-fluid">
   <div class="row">
@@ -453,7 +455,7 @@
   <p>zip {{hotel.zip}}</p>
   <p>star rating {{hotel.starRating}}</p>
   <p>phone {{hotel.phone}}</p>
-   <!-- <img ng-src="{{hotel.photos}}" alt="hotel"></p> -->
+   <!-- <img ng-src="{{hotel.photos}}" alt="hotel"> -->
     
   <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a>
 

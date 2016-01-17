@@ -4,7 +4,9 @@
 .white{
   color:white;
 }
-
+#navtransp{
+  /*opacity: 0.6;*/
+}
 .bigimg{
   width: 100%;
   /*height: 600px;*/
@@ -13,8 +15,7 @@
 }
 #sbox{
   position: relative;
-  /*margin-top: 520px;*/
-  margin-top: 470px;
+  margin-top: 398px;
   margin-left: 0px;
   margin-right: 0px;
   height: 80px;
@@ -37,31 +38,44 @@
 }
 
 
-.navig{
+/*.navig{
   position: absolute;
-  right: 0; /*you can do this bc. of absolut position*/
-}
+  right: 0; 
+}*/
+  /*you can do this bc. of absolut position*/
 
-.navleft{
+
+/*.navleft{
   position: absolute;
   margin-top: 3px;
 
-}
-.logo{
+}*/
+#logo{
   font-size: 18px;
   letter-spacing: 1px;
+  text-align: left;
+  left-margin: 5px;
 }
-.logoindex{
+#navblack{
+  color: black;
+  font-size: 18px;
+  padding: 5px;
+  letter-spacing: 1px;
+  margin-left: -40px;
+  margin-top: 8px;
+  text-decoration: none;
+  border: 1px solid black;
+}
+/*.logoindex{
   padding-top: 20px;
   font-size: 18px;
   letter-spacing: 1px;
-  color: black;
-}
-
+  color: white;
+}*/
+/*
 .nav>li>a {
   color: white;
- /* color: black;*/
-}
+}*/
  ul{
   list-style-type: none;
   right: 0;
@@ -79,11 +93,17 @@
 }
 
 .black{
+  font-size: 18px;
+  letter-spacing: 1px;
   color: black;
+  text-decoration: none;
 }
 .searchindex{
   padding-top: 15px;
 }
+.profileimage{
+  border-radius: 50%;
+  }
 
 /*SEARCH BUTTON*/
 .searchButton {
@@ -119,11 +139,6 @@
   top:1px;
 }
 
-
-
-
-
- 
 /*SUBMIT BUTTON*/
 .myButton {
   -moz-box-shadow:inset 0px 0px 0px 0px #f7c5c0;
@@ -217,14 +232,11 @@
   position: absolute;
 
   /*margin-top: 540px;*/
-  margin-top: 490px;
+  margin-top: 420px;
   width: 100%;
  /* z-index: 0;*/
 }
-#navblack{
-  color: black;
-  margin-left: -40px;
-}
+
 /*sliding images*/
 .slide.ng-hide-add,
 .slide.ng-hide-remove {

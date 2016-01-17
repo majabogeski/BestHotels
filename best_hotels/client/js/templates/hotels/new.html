@@ -1,13 +1,27 @@
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
-      <ul>
-      <li class="logo"><a ng-href="/home.html" id="navblack" class="logoindexhref">bestHotels</a>
-      </li>
-      <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" class="logoindexhref">Logout</a>
-      </li>
-    </ul>
-  </div>
-</nav>  
+  <nav>
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <ul>
+                <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack">bestHotels</a>
+                </li>
+              </ul>
+            </div>
+               <ul class="nav navbar-nav pull-right">
+                    <li><a href="#">My Favorites</a></li>
+                    <li><a href="#">User Name</a></li>
+                    <li role="presentation" class="pull-right"><a ng-href="/auth/login.html">Sign Up</a>
+                    </li>
+                    <li role="presentation" class="pull-right"><a ng-href="/auth/signup.html">Log In</a>
+                    </li>
+                     <li role="presentation" class="pull-right"><a ng-href="/home">Logout</a>
+                    </li>
+                    <li role="presentation"><a href="#">Host {{user.displayName}}</a></li>
+                    <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
+               </ul>
+        </div><!-- /.container-fluid -->
+    </div>
+  </nav>
   <div class="container top">
     <div class="row">
       <div class="col-md-12">
