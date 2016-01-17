@@ -47,51 +47,51 @@
 
     // DIRECTIVE FOR INDEX PAGE 
 
-    // app.directive('sliderhotels', function($timeout) {
-    //   return {
-    //     restrict: 'AE',
-    //     replace: true,
-    //     scope: {
-    //       images: '='
-    //     },
+    app.directive('sliderhotels', function($timeout) {
+      return {
+        restrict: 'AE',
+        replace: true,
+        scope: {
+          images: '='
+        },
 
-    //     link: function(scope, elem, attrs) {
+        link: function(scope, elem, attrs) {
           
-    //       scope.currentIndex = 0; // Initially the index is at the first image
+          scope.currentIndex = 0; // Initially the index is at the first image
 
-    //        scope.next = function() {
-    //          scope.currentIndex < scope.hotel.photos.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
-    //        };
+           scope.next = function() {
+             scope.currentIndex < scope.hotel.photos.length - 1 ? scope.currentIndex++ : scope.currentIndex = 0;
+           };
 
-    //        scope.prev = function() {
-    //         scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.hotel.photos.length - 1;
-    //         };
-    //         scope.$watch('currentIndex', function() {
-    //         scope.hotel.photos.forEach(function(photo) {
-    //         image.visible = false; // make every image invisible
-    //       });
+           scope.prev = function() {
+            scope.currentIndex > 0 ? scope.currentIndex-- : scope.currentIndex = scope.hotel.photos.length - 1;
+            };
+            scope.$watch('currentIndex', function() {
+            scope.hotel.photos.forEach(function(photo) {
+            photo.visible = false; // make every image invisible
+          });
 
-    //         scope.photo[scope.currentIndex].visible = true; // make the current image visible
-    //       });
+            scope.photo[scope.currentIndex].visible = true; // make the current image visible
+          });
 
-    //         var timer;
-    //         var sliderhotelsFunc = function() {
-    //           timer = $timeout(function() {
-    //             scope.next();
-    //             timer = $timeout(sliderhotelsFunc, 5000);
-    //           }, 5000);
-    //         };
+            var timer;
+            var sliderhotelsFunc = function() {
+              timer = $timeout(function() {
+                scope.next();
+                timer = $timeout(sliderhotelsFunc, 5000);
+              }, 5000);
+            };
 
-    //         sliderhotelsFunc();
+            sliderhotelsFunc();
 
-    //         scope.$on('$destroy', function() {
-    //           $timeout.cancel(timer); // when the scope is getting destroyed, cancel the timer
-    //         });
+            scope.$on('$destroy', function() {
+              $timeout.cancel(timer); // when the scope is getting destroyed, cancel the timer
+            });
 
-    //     },
-    //     templateUrl: 'templates/sliderhotels.html'
-    //   };
+        },
+        templateUrl: 'templates/sliderhotels.html'
+      };
 
-    // });
+    });
 
     
