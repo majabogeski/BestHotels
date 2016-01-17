@@ -14,15 +14,13 @@ app.controller("HotelsController", function($scope, HotelService,$location){
 
   HotelService.getHotels($location.search().destination).then(function(hotels){
     console.log(hotels);
-    // console.log(hotels.photos);
     $scope.hotels = hotels.data;
-    $scope.photos = hotels.photos;
-    console.log(photos);
-    $scope.hotel.photos =[];
-    for (var i = 0; i < hotels.data; i++){
-    // $scope.hotel.photos.push(info.cdnUrl + "nth/"+i+"/");
-    $scope.hotel.photos.push(hotels.data.photos[i]);
-   }
+    // $scope.photos = hotels.photos;
+    // console.log(photos);
+    // $scope.hotel.photos =[];
+   //  for (var i = 0; i < hotels.data; i++){
+   //  $scope.hotel.photos.push(hotels.data.photos[i]);
+   // }
   }).catch(function(err){
     $scope.errors = err; 
   });
@@ -57,6 +55,13 @@ app.controller("NewHotelController", function($scope, $location, HotelService){
   // $scope.showHotel = function() {
   //   console.log($scope.hotel);
   // };
+
+app.controller("ShowHotelController", function($scope, $location, $routeParams, HotelService){
+  HotelService.getHotel($routeParams.id).then(function(hotel){
+    console.log($scope.hotel);
+    $scope.hotel = hotel.data;
+  });
+});
 
 
 app.controller("EditHotelController", function($scope, $location, $routeParams,HotelService){

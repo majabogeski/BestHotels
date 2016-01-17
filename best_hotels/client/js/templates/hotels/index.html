@@ -5,26 +5,20 @@
  <div class="navbar-header">
     <ul>
       <li role="presentation" class="logo"><a class="black" href="#">bestHotels</a></li>
+      </li>
     </ul>
   </div>
 </div>
 <!--   ***************** -->
 <div class="navbar navbar-default">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <!-- <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Brand</a>
-    </div>
- -->
+
   <div class="navbar-header">
     <ul>
-      <li role="presentation" class="logoindex"><a href="#" id="navblack" class="logoindexhref" >bestHotels</a></li>
+      <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" >bestHotels</a>
+      </li>
+      <li role="presentation" class="pull-right"><a ng-href="auth/login.html"  >LogIn</a>
+      </li>
     </ul>
   </div>
   <div class="form-group col-md-4 searchindex" ng-class="search">
@@ -33,6 +27,7 @@
   <div>
        
    <ul class="nav navbar-nav pull-right">
+   <li role="presentation" class="pull-right"><a ng-href="auth/login.html">LogIn</a>
       <li><a href="#">My Favorites</a></li>
       <li><a href="#">User Name</a></li>
    </ul>
@@ -65,7 +60,7 @@
           <h6>Price Range</h6>
       </div>
       <div class="form-group col-md-6">
-         <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"> 
+         <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" > 
          </div>
       </div> 
     </div>  
@@ -444,8 +439,9 @@
 <!--   <h1>{{hotels[0].hotelname}}</h1>
 <p>{{hotels.starRating}}</p>
 <p>{{hotels.city}}</p> -->
-<div ng-repeat=" hotel in hotels">
+<div ng-repeat=" hotel in hotels track by $index">
   <p>hotelName {{hotel.hotelname}}</p>
+  <a ng-href="/show.html/{{hotel}}">{{hotel.hotelname}}</a>
   <p>city {{hotel.city}}</p>
   <p>price {{hotel.price}}</p>
   <p>accommodates {{hotel.accommodates}}</p>

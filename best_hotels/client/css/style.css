@@ -39,7 +39,6 @@
 
 .navig{
   position: absolute;
- 
   right: 0; /*you can do this bc. of absolut position*/
 }
 
@@ -208,7 +207,9 @@
 
 /**************INDEX PAGE NAVIGATIN BAR***************/
 /**/
-
+#red{
+  background-color: red;
+}
 .colindex{
   width: 50px;
 }

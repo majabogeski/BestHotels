@@ -37,7 +37,11 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
       templateUrl: "templates/hotels/home.html",
       controller: "SliderController"
     })
-    .otherwise({redirectTo: '/hotels'});
+    .when('/hotels/:id',{
+      templateUrl: "templates/hotels/show.html",
+      controller: "ShowHotelController"
+    })
+    .otherwise({redirectTo: '/'});
 
   $locationProvider.html5Mode(true);
 
