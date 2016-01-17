@@ -61,6 +61,9 @@ app.controller("ShowHotelController", function($scope, $location, $routeParams, 
     console.log($scope.hotel);
     $scope.hotel = hotel.data;
   });
+  // $scope.getHotel = function(hotel){
+  //   $location.path('/');
+  // };
 });
 
 
@@ -68,9 +71,9 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
   HotelService.getHotel($routeParams.id).then(function(hotel){
     $scope.hotel = hotel.data;
   });
-
-  $scope.editTodo = function(hotel){
-    HotelService.editTodo(hotel).then(function(){
+ 
+  $scope.editHotel = function(hotel){
+    HotelService.editHotel(hotel).then(function(){
       $location.path('/hotels');
     });
   };

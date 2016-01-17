@@ -115,11 +115,11 @@ var hotelSchema = new mongoose.Schema({
       type: String,
       required: true
   }],
-  user: {
-          type: mongoose.Schema.Types.ObjectId,
-          ref: "User",
-          required: true
-        }
+  // user: {
+  //         type: mongoose.Schema.Types.ObjectId,
+  //         ref: "User",
+  //         required: true
+  //       }
  
  })
 .index({          //http://stackoverflow.com/questions/24714166/full-text-search-with-weight-in-mongoose

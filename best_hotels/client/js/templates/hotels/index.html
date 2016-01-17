@@ -441,7 +441,7 @@
 <p>{{hotels.city}}</p> -->
 <div ng-repeat=" hotel in hotels track by $index">
   <p>hotelName {{hotel.hotelname}}</p>
-  <a ng-href="/show.html/{{hotel}}">{{hotel.hotelname}}</a>
+  
   <p>city {{hotel.city}}</p>
   <p>price {{hotel.price}}</p>
   <p>accommodates {{hotel.accommodates}}</p>
@@ -455,6 +455,8 @@
   <p>phone {{hotel.phone}}</p>
    <!-- <img ng-src="{{hotel.photos}}" alt="hotel"></p> -->
     
+  <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a>
+
     <div ng-repeat="photo in hotel.photos">
       <img ng-src="{{photo}}">
     </div>
