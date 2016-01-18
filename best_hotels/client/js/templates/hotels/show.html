@@ -27,56 +27,181 @@
 <!-- <div ng-repeat="photo in hotel.photos"> -->
 <!-- </div> -->
 <div class="container-fluid">
-  <div class="col-md-12 col-md-offset-2">
-      <div class="row">
-        <div class="col-md-8">
-          <h2>{{hotel.hotelname}} {{hotel.starRating}}</h2>
+ <div class="col-md-12 col-md-offset-1">
+      <div class="col-md-6">
+          <div class="row">
+            <div class="col-md-6">
+              <h2>{{hotel.hotelname}} {{hotel.starRating}}</h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p>{{hotel.address}}, {{hotel.city}}, {{hotel.state}}, {{hotel.zip}}   {{hotel.phone}}</p>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <h5>Hotel Description</h5> 
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <p> {{hotel.description}}</p> 
+            </div>
+          </div>
+          <div id="background"> 
+           <div class="row">
+              <p class="col-md-12 page-header"></p>
+                <span class="amen">The Space</span>
+                 <span class="showspace">Accommodates:</span><span class="number"> {{hotel.accommodates}} </span>
+                 <span class="spacebetween">Room Type: {{hotel.hotelroomtypes}}</span> 
+                 <span class="spacebetween">Beds:</span><span class="number"> {{hotel.bedNumber}}</span>
+          </div>
+           <div class="row">
+              <p class="col-md-12 page-header"></p>
+                <span class="amen">Amenities</span><span class="anvisible"></span>
+                  <span ng-repeat="(key,value) in hotel.amenities">
+                  <span class="between" ng-show="value===true">{{key}}</span>
+                </span>
+          </div>
+          <div class="row">
+              <p class="col-md-12 page-header"></p>
+                <span class="amen">Hotel Safety</span>
+                  <span ng-repeat="(key,value) in hotel.hotelSafety">
+                  <span class="safety" ng-show="value===true">{{key}}</span>
+                </span>
+          </div>
+          <div class="row">
+              <p class="col-md-12 page-header"></p>
+                <span class="amen">Property Type</span>
+                  <span ng-repeat="(key,value) in hotel.propertyType">
+                  <span class="showproperty" ng-show="value===true">{{key}}</span>
+                </span>
+          </div>
+      </div>
+     </div> 
+     <div class="col-md-4">
+       <div class="row price">
+          <div class="col-md-1 text-center">
+           <h4 class="pricecolor">${{hotel.price}}</h4>
+          </div>
+          <div class="col-md-3 pull-right">
+            <h5 class="pernight">Per Night</h5>
+         </div>
+       </div>
+       <div class="container-fluid border">
+         <div class="row">
+           <div class="form-group col-md-2 calendar">
+            <label for="guests">Check In</label>
+              <input autofocus type="date" class="form-control" ng-model="location.calendar" placeholder="Check In?">
+           </div>
+           <div class="form-group col-md-2 calendar">
+              <label for="guests">Check Out</label>
+              <input autofocus type="date" class="form-control" ng-model="location.calendar1">
+           </div>
+           <div class="form-group col-md-1 guest">
+              <label for="guests">Guests</label>
+              <select class="form-control" name="guest" id="guest" ng-model="guest" ng-options="option.name for option in options" ng-init="guest = options[1]"> 
+              </select>
+           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <p>{{hotel.address}}, {{hotel.city}}, {{hotel.state}}, {{hotel.zip}}   {{hotel.phone}}</p>
+        <div class="row">
+          <table class="table">
+            <tr>
+              <td >
+                ${{hotel.price}} x 2 nights
+              </td>
+              <td class="total">  
+                ${{hotel.price}} 
+              </td>
+            </tr>
+             <tr>
+              <td>
+                Taxes
+              </td>
+              <td class="total">
+                $0 
+              </td>
+            </tr>
+             <tr>
+              <td>
+                Total
+              </td>
+              <td class="total">
+                ${{hotel.price}}
+              </td>
+            </tr>
+             <tr>
+              <td>
+                First Name
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Last Name
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+            <tr>
+              <td>
+                Email address
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+            <!-- <tr>
+              <td>
+                Payment method
+              </td>
+              <td>
+                <img src="/images/amex.png" height="40px" width="40px">
+              </td>
+              <td>
+                <img src="/images/amex.png" height="40px" width="40px">
+              </td>
+              <td>
+                <img src="/images/amex.png" height="40px" width="40px">
+              </td>
+              <td>
+                <img src="/images/amex.png" height="40px" width="40px">
+              </td>
+            </tr> -->
+            <tr>
+              <td>
+                Credit card number
+              </td>
+              <td>
+                <input class="form-control" type="text">
+              </td>
+            </tr>
+            <tr>
+                <td>
+                  Experation Date
+                </td>
+                <td >
+                   <select id="year" class="form-control" name="year" id="year" ng-model="year" ng-options="year.name for year in years" ng-init="year = years[1]"> 
+                  </select>
+                </td>
+                <td>
+                  <select id="month"class="form-control" name="month" id="month" ng-model="month" ng-options="month.name for month in months" ng-init="month = months[1]"> 
+                  </select>
+                </td>
+              </td>
+            </tr>
+          </table>
+            <div id="book" class="form-group col-md-2 text-center">
+                   <input type="submit" value="book" class="book">
+              </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <h5>Hotel Description</h5> 
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-8">
-          <p> {{hotel.description}}</p> 
-        </div>
-      </div>
-       <div class="row">
-          <p class="col-md-12 page-header"></p>
-            <span class="amen">The Space</span>
-             <span class="showspace">Accommodates:</span><span class="number"> {{hotel.accommodates}} </span>
-             <span class="spacebetween">Room Type: {{hotel.hotelroomtypes}}</span> 
-             <span class="spacebetween">Beds:</span><span class="number"> {{hotel.bedNumber}}</span>
-      </div>
-       <div class="row">
-          <p class="col-md-12 page-header"></p>
-            <span class="amen">Amenities</span><span class="anvisible"></span>
-              <span ng-repeat="(key,value) in hotel.amenities">
-              <span class="between" ng-show="value===true">{{key}}</span>
-            </span>
-      </div>
-      <div class="row">
-          <p class="col-md-12 page-header"></p>
-            <span class="amen">Hotel Safety</span>
-              <span ng-repeat="(key,value) in hotel.hotelSafety">
-              <span class="safety" ng-show="value===true">{{key}}</span>
-            </span>
-      </div>
-      <div class="row">
-          <p class="col-md-12 page-header"></p>
-            <span class="amen">Property Type</span>
-              <span ng-repeat="(key,value) in hotel.propertyType">
-              <span class="showproperty" ng-show="value===true">{{key}}</span>
-            </span>
-      </div>
-  </div>    
+      </div><!-- container-fluid -->  
+    </div>  
+ </div>  
 </div>
  <!-- <p>city {{hotel.city}}</p>
   <p>price {{hotel.price}}</p>

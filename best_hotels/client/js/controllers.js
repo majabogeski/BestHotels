@@ -64,6 +64,40 @@ app.controller("ShowHotelController", function($scope, $location, $routeParams, 
   // $scope.getHotel = function(hotel){
   //   $location.path('/');
   // };
+    $scope.options = [
+    {name: '1 Guest'},
+    {name: '2 Guests'},
+    {name: '3 Guests'},
+    {name: '4 Guests'},
+    {name: '5 Guests'},
+    {name: '6 Guests'},
+    {name: '7 Guests'},
+    {name: '8 Guests'},
+    {name: '9 Guests'},
+    {name: '10+ Guests'}
+  ];
+  $scope.months = [
+    {name: 'Jan'},
+    {name: 'Feb'},
+    {name: 'Mar'},
+    {name: 'Apr'},
+    {name: 'May'},
+    {name: 'Jun'},
+    {name: 'July'},
+    {name: 'Aug'},
+    {name: 'Sep'},
+    {name: 'Oct'},
+    {name: 'Nov'},
+    {name: 'Dec'}
+  ];
+    $scope.years = [
+    {name: '2015'},
+    {name: '2016'},
+    {name: '2017'},
+    {name: '2018'},
+    {name: '2018'}
+  ];
+
 });
 
 
@@ -131,6 +165,7 @@ app.controller('SliderController', function($scope,$location,$auth) {
     title: 'Pic 5'
   }];
 });
+
 
 app.controller("LoginController", function($scope, $auth, $location){
   $scope.login = function() {
