@@ -20,7 +20,74 @@
                     <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
                </ul>
         </div><!-- /.container-fluid -->
+      <img class="imgshow" ng-src="{{hotel.photos[2]}}">
     </div>
   </nav>
-<h1>See some information about {{hotel}}</h1>
+<!-- <h1>See some information about {{hotel}}</h1> -->
+<!-- <div ng-repeat="photo in hotel.photos"> -->
+<!-- </div> -->
+<div class="container-fluid">
+  <div class="col-md-12 col-md-offset-2">
+      <div class="row">
+        <div class="col-md-8">
+          <h2>{{hotel.hotelname}} {{hotel.starRating}}</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <p>{{hotel.address}}, {{hotel.city}}, {{hotel.state}}, {{hotel.zip}}   {{hotel.phone}}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <h5>Hotel Description</h5> 
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-8">
+          <p> {{hotel.description}}</p> 
+        </div>
+      </div>
+       <div class="row">
+          <p class="col-md-12 page-header"></p>
+            <span class="amen">The Space</span>
+             <span class="showspace">Accommodates:</span><span class="number"> {{hotel.accommodates}} </span>
+             <span class="spacebetween">Room Type: {{hotel.hotelroomtypes}}</span> 
+             <span class="spacebetween">Beds:</span><span class="number"> {{hotel.bedNumber}}</span>
+      </div>
+       <div class="row">
+          <p class="col-md-12 page-header"></p>
+            <span class="amen">Amenities</span><span class="anvisible"></span>
+              <span ng-repeat="(key,value) in hotel.amenities">
+              <span class="between" ng-show="value===true">{{key}}</span>
+            </span>
+      </div>
+      <div class="row">
+          <p class="col-md-12 page-header"></p>
+            <span class="amen">Hotel Safety</span>
+              <span ng-repeat="(key,value) in hotel.hotelSafety">
+              <span class="safety" ng-show="value===true">{{key}}</span>
+            </span>
+      </div>
+      <div class="row">
+          <p class="col-md-12 page-header"></p>
+            <span class="amen">Property Type</span>
+              <span ng-repeat="(key,value) in hotel.propertyType">
+              <span class="showproperty" ng-show="value===true">{{key}}</span>
+            </span>
+      </div>
+  </div>    
+</div>
+ <!-- <p>city {{hotel.city}}</p>
+  <p>price {{hotel.price}}</p>
+  <p>accommodates {{hotel.accommodates}}</p>
+  <p>description {{hotel.description}}</p>
+  <p>hotel Email {{hotel.email}}</p>
+  <p>address {{hotel.address}}</p>
+  <p>room type {{hotel.hotelroomtypes}}</p>
+  <p>state {{hotel.state}}</p>
+  <p>zip {{hotel.zip}}</p>
+  <p>star rating {{hotel.starRating}}</p>
+  <p>phone {{hotel.phone}}</p> -->
+
 
