@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
-db = require("../models");
+var jwt = require('jsonwebtoken');
+var db = require("../models");
 
 //INDEX GET /api/hotels/
 router.get('/',function(req,res){
@@ -23,17 +24,28 @@ router.get('/',function(req,res){
 
 //CREATE POST /api/hotels/
 router.post('/',function(req,res){
-  console.log("THIS IS REQ BODY!", req.body);
-  console.log("ALL THE PHOTOS!", req.body.photos);
-  console.log("DO WE HAVE AN ARRAY????", Array.isArray(req.body.photos));
-  var hotel = new db.Hotel(req.body);
-  // hotel.photos = req.body.photos.split(',');
-  hotel.save(function(error,hotel){
-    if (error) return res.status(400).send({error:error});
-    //201 statu crated
-    console.log('IT WORKS!');
-    res.status(201).send(hotel);
-  });
+  console.log("REQUEST HEADERS", req.headers);
+  if (req.headers.authorization) {
+    var token = req.headers.authorization.split(' ')[1];
+    jwt.verify(token, process.env.JWT_SECRET, function(err, decoded){
+      console.log('DECODED SUBJECT', decoded.sub);
+      db.User.findById(decoded.sub, function(err, user) {
+        console.log('THIS IS THE USER!', user);
+        console.log("THIS IS REQ BODY!", req.body);
+        console.log("ALL THE PHOTOS!", req.body.photos);
+        console.log("DO WE HAVE AN ARRAY????", Array.isArray(req.body.photos));
+        var hotel = new db.Hotel(req.body);
+        hotel.user = user;
+        // hotel.photos = req.body.photos.split(',');
+        hotel.save(function(error,hotel){
+          if (error) return res.status(400).send({error:error});
+          //201 statu crated
+          console.log('IT WORKS!');
+          res.status(201).send(hotel);
+        });
+      });      
+    });
+  }
 });
 
 //GET SHOW /api/hotels/:id
