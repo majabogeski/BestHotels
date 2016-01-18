@@ -10,7 +10,11 @@ var userSchema = new mongoose.Schema({
   hotels: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hotel"
-    }]
+    }],
+  host: {
+    type: Boolean,
+    required: true
+  }
 });
 userSchema.pre('save', function(next) {
   var user = this;

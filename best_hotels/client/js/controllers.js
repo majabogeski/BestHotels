@@ -13,7 +13,11 @@ app.controller("HotelsController", function($scope, HotelService,$location){
   ];
 
   HotelService.getHotels($location.search().destination).then(function(hotels){
-    console.log(hotels);
+    console.log(hotels.data);
+    console.log(hotels.data[0].hotelname);
+    console.log(hotels.data[1].hotelname);
+    console.log(hotels.data[0].photos[0]);
+    console.log(hotels.data[0].address);
     $scope.hotels = hotels.data;
     // $scope.photos = hotels.photos;
     // console.log(photos);
@@ -177,6 +181,7 @@ app.controller('SliderController', function($scope,$location,$auth) {
 
 
 app.controller("LoginController", function($scope, $auth, $location){
+  $scope.user = {};
   $scope.login = function() {
     $auth.login($scope.user)
       .then(function(response) {
@@ -221,10 +226,16 @@ app.controller('LogoutController', function($location, $auth) {
 
 app.controller('SignupController', function($scope, $location, $auth) {
   $scope.signup = function() {
+    debugger
     $auth.signup($scope.user)
       .then(function(response) {
         $auth.setToken(response);
-        $location.path('/hotels/new');
+        // if you're a host, load hotels/new otherwise go to home page
+        if ($auth.getPayload().user.host) {
+          $location.path('/hotels/new');
+        } else {
+          $location.path('/');
+        }
         console.log('You have successfully created a new account and have been signed-in');
       })
       .catch(function(response) {

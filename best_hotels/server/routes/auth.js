@@ -116,6 +116,7 @@ router.post('/signup', function(req, res) {
     var user = new db.User({
       displayName: req.body.displayName,
       email: req.body.email,
+      host: req.body.host || false,
       password: req.body.password
     });
     user.save(function(err, result) {
