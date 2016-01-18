@@ -17,20 +17,23 @@
               <ul>
                 <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" >bestHotels</a>
                 </li>
-
               </ul>
             </div>
             <div class="form-group col-md-4 searchindex" ng-class="search">
                 <input autofocus type="text" name="search" class="form-control" ng-model="search" placeholder="Where do you want to go?">
             </div>
                <ul class="nav navbar-nav pull-right">
-                    <li><a href="#">My Favorites</a></li>
-                    <li><a href="#">User Name</a></li>
-                    <li role="presentation" class="pull-right"><a ng-href="templates/auth/login.html">LogIn</a>
-                    </li>
-                     <li role="presentation" class="pull-right"><a ng-href="/templates/auth/login.html">Logout</a>
-                </li>
-               </ul>
+                 <!-- <li><a href="#">My Favorites</a></li> -->
+                <!--  <li><a href="#">User Name</a></li> -->
+                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/signup">Sign Up</a>
+                 </li>
+                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
+                 </li>
+                  <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
+                 </li>
+                 <li role="presentation"><a href="#">Host {{user.displayName}}</a></li>
+                 <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
+              </ul>
         </div><!-- /.container-fluid -->
     </div>
   </nav>
