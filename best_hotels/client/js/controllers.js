@@ -26,7 +26,14 @@ app.controller("HotelsController", function($scope, HotelService,$location){
   });
 });
 
-app.controller("NewHotelController", function($scope, $location, HotelService){
+app.controller("NewHotelController", function($scope, $location, $auth, HotelService){
+  // Get user information from the token
+  $scope.userNav = false;
+  if ($auth.getPayload()) {
+    $scope.user = $auth.getPayload().user;
+    $scope.userNav = true;
+  }
+
   $scope.onUCUploadComplete = function(info){
    console.log(info);
    $scope.hotel.photos=[];
@@ -124,8 +131,10 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
 // });
 app.controller('SliderController', function($scope,$location,$auth) {
   // Get user information from the token
+  $scope.userNav = false;
   if ($auth.getPayload()) {
     $scope.user = $auth.getPayload().user;
+    $scope.userNav = true;
   }
 
   $scope.searchHotel = function(location){

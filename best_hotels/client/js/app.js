@@ -27,7 +27,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
     })
     .when('/hotels/new',{
       templateUrl: "templates/hotels/new.html",
-      controller: "NewHotelController"
+      controller: "NewHotelController",
+      resolve: {
+        loginRequired: loginRequired
+      }
     })
     .when('/hotels/:id',{
       templateUrl: "templates/hotels/show.html",
@@ -61,14 +64,14 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
         return deferred.promise;
       }
 
-      // function loginRequired($q, $location, $auth) {
-      //   var deferred = $q.defer();
-      //   if ($auth.isAuthenticated()) {
-      //     deferred.resolve();
-      //   } else {
-      //     $location.path('/login');
-      //   }
-      //   return deferred.promise;
-      // }
+      function loginRequired($q, $location, $auth) {
+        var deferred = $q.defer();
+        if ($auth.isAuthenticated()) {
+          deferred.resolve();
+        } else {
+          $location.path('/login');
+        }
+        return deferred.promise;
+      }
 });
 
