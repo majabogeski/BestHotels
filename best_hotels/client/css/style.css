@@ -222,6 +222,7 @@
 
 /**************INDEX PAGE NAVIGATIN BAR***************/
 /**/
+
 #red{
   background-color: red;
 }
@@ -236,6 +237,26 @@
   width: 100%;
  /* z-index: 0;*/
 }
+/*small slider*/
+.sliderindex {
+  /* position: static;*/
+  /*padding: 5px;*/
+  width: 6px;
+ /* margin: auto;*/
+  margin-top: 300px;
+}
+.hotelimg{
+  width: 401px;
+  height: 401px;
+  margin-bottom: 3360px;
+
+}
+.imgsize{
+width: 407px;
+height: 307px;
+padding-bottom: 70px;
+}
+
 
 /*sliding images*/
 .slide.ng-hide-add,
@@ -284,7 +305,7 @@
 }
 .arrows {
   position: absolute;
-  top: 10px;
+  top: 600px;
   right: 20px;
 }
 .arrows img {
@@ -297,11 +318,39 @@ h1 {
   color: #222;
 }
 
-
-
-
-
-
+.relative{
+  position: absolute;
+  
+  padding-top: 15px
+  padding-bottom: 15px;
+}
+.arrowleft{
+  position: relative;
+  margin-top: 20px;
+/*  margin-top: 20px;*/
+  padding: 25px;
+  padding-left: 16px;
+}
+.arrowright{
+  position: relative;
+  margin-top: -170px;
+  padding-left: 335px;
+}
+.price_on_img{
+  position: relative;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-bottom: 1px;
+  margin-top: -90px;
+  font-size: 20px;
+  color:white;
+  font-weight: bold;
+  background: gray;
+  width: 60px;
+  /*height: 70px;*/
+  /*text-align: center; */
+}
 
 
 

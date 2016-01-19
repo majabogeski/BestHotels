@@ -16,7 +16,6 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
-
   HotelService.getHotels($location.search().destination).then(function(hotels){
     console.log(hotels.data);
     // console.log(hotels.data[0].hotelname);
@@ -24,12 +23,6 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     // console.log(hotels.data[0].photos[0]);
     // console.log(hotels.data[0].address);
     $scope.hotels = hotels.data;
-    // $scope.photos = hotels.photos;
-    // console.log(photos);
-    // $scope.hotel.photos =[];
-   //  for (var i = 0; i < hotels.data; i++){
-   //  $scope.hotel.photos.push(hotels.data.photos[i]);
-   // }
   }).catch(function(err){
     $scope.errors = err; 
   });
@@ -234,7 +227,6 @@ app.controller('LogoutController', function($location, $auth) {
       $location.path('/');
     });
 });
-
 
 app.controller('SignupController', function($scope, $location, $auth) {
   $scope.signup = function() {

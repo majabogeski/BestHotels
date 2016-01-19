@@ -1,36 +1,43 @@
-<div>
-  <p>hotelName {{hotel.hotelname}}</p>
+<div class="container-fluid">
 
-  <p>city {{hotel.city}}</p>
-  <p>price {{hotel.price}}</p>
-  <p>accommodates {{hotel.accommodates}}</p>
-  <p>description {{hotel.description}}</p>
-  <p>hotel Email {{hotel.email}}</p>
-  <p>address {{hotel.address}}</p>
-  <p>room type {{hotel.hotelroomtypes}}</p>
-  <p>state {{hotel.state}}</p>
-  <p>zip {{hotel.zip}}</p>
-  <p>star rating {{hotel.starRating}}</p>
-  <p>phone {{hotel.phone}}</p>
-    
-  <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a>
-    
-  <div ng-repeat="(key,value) in hotel.amenities">
+ <!--  <div ng-repeat="(key,value) in hotel.amenities">
     <div ng-show="value==true">{{key}}:{{value}}</div>
   </div>
   <div ng-repeat="(key,value) in hotel.hotelSafety">
     <div ng-show="value==true">{{key}}:{{value}}</div>
-  </div>
+  </div> -->
 
-  <div class="slider">
-    <img ng-src="{{hotel.photos[currentIndex]}}">
-    <div class="arrows">
-      <a href="#" ng-click="prev()">
-        <img src="/images/left-arrow.png" />
-      </a>
-      <a href="#" ng-click="next()">
-        <img src="/images/right-arrow.png" />
-      </a>
+  <div class="row">
+    <div class="col-md-3">
+       <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}} {{hotel.city}}</a>
     </div>
   </div>
+  <div class="relative">
+      <div class="row">
+        <div class="col-md-3 hotelimg">
+         <img class="imgsize" ng-src="{{hotel.photos[currentIndex]}}">
+        </div>
+      </div>
+  </div>
+
+      <div class="arrowleft">
+        <a href="#" ng-click="prev()">
+          <img class="arrowleft" src="/images/arrow_white_left.png" />
+        </a>
+        <div></div>
+      </div>
+      <div>
+        <a href="#" ng-click="next()">
+          <img class="arrowright" src="/images/arrow-white-right.png"/>
+        </a>
+        
+      </div>
+      
+      <div class="price_on_img">
+           <p >${{hotel.price}}</p>
+       </div>
+     
+  
+  <!-- <p>hotelName{{hotel.hotelname}}</p> -->
+
 </div>
