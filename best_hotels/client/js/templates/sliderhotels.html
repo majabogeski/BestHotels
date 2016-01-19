@@ -1,12 +1,29 @@
-<div class="slider">
-    <!-- <div class="slide" ng-repeat="image in images" ng-show="image.visible">
-      <img class="bigimg" ng-src="/images/{{image.src}}" />
-    </div> -->
-    <!-- <div ng-repeat=" hotel in hotels">
-      <div class="slide" ng-repeat="photo in hotel.photos" ng-show="photo.visible">
-        <img ng-src="{{photo.src}}">
-      </div>
-    </div> -->
+<div>
+  <p>hotelName {{hotel.hotelname}}</p>
+
+  <p>city {{hotel.city}}</p>
+  <p>price {{hotel.price}}</p>
+  <p>accommodates {{hotel.accommodates}}</p>
+  <p>description {{hotel.description}}</p>
+  <p>hotel Email {{hotel.email}}</p>
+  <p>address {{hotel.address}}</p>
+  <p>room type {{hotel.hotelroomtypes}}</p>
+  <p>state {{hotel.state}}</p>
+  <p>zip {{hotel.zip}}</p>
+  <p>star rating {{hotel.starRating}}</p>
+  <p>phone {{hotel.phone}}</p>
+    
+  <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a>
+    
+  <div ng-repeat="(key,value) in hotel.amenities">
+    <div ng-show="value==true">{{key}}:{{value}}</div>
+  </div>
+  <div ng-repeat="(key,value) in hotel.hotelSafety">
+    <div ng-show="value==true">{{key}}:{{value}}</div>
+  </div>
+
+  <div class="slider">
+    <img ng-src="{{hotel.photos[currentIndex]}}">
     <div class="arrows">
       <a href="#" ng-click="prev()">
         <img src="/images/left-arrow.png" />
@@ -16,3 +33,4 @@
       </a>
     </div>
   </div>
+</div>

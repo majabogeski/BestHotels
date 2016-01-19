@@ -14,10 +14,10 @@ app.controller("HotelsController", function($scope, HotelService,$location){
 
   HotelService.getHotels($location.search().destination).then(function(hotels){
     console.log(hotels.data);
-    console.log(hotels.data[0].hotelname);
-    console.log(hotels.data[1].hotelname);
-    console.log(hotels.data[0].photos[0]);
-    console.log(hotels.data[0].address);
+    // console.log(hotels.data[0].hotelname);
+    // console.log(hotels.data[1].hotelname);
+    // console.log(hotels.data[0].photos[0]);
+    // console.log(hotels.data[0].address);
     $scope.hotels = hotels.data;
     // $scope.photos = hotels.photos;
     // console.log(photos);
@@ -67,7 +67,14 @@ app.controller("NewHotelController", function($scope, $location, $auth, HotelSer
   //   console.log($scope.hotel);
   // };
 
-app.controller("ShowHotelController", function($scope, $location, $routeParams, HotelService){
+app.controller("ShowHotelController", function($scope, $auth, $location, $routeParams, HotelService){
+  // Get user information from the token
+  $scope.userNav = false;
+  if ($auth.getPayload()) {
+    $scope.user = $auth.getPayload().user;
+    $scope.userNav = true;
+  }
+
   HotelService.getHotel($routeParams.id).then(function(hotel){
     console.log($scope.hotel);
     $scope.hotel = hotel.data;
@@ -226,7 +233,6 @@ app.controller('LogoutController', function($location, $auth) {
 
 app.controller('SignupController', function($scope, $location, $auth) {
   $scope.signup = function() {
-    debugger
     $auth.signup($scope.user)
       .then(function(response) {
         $auth.setToken(response);
