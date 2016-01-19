@@ -4,7 +4,7 @@ var request = require("request");
 var db = require('../models/');
 var jwt = require('jsonwebtoken');
 var moment = require('moment');
-
+require("locus")
 /*
  |--------------------------------------------------------------------------
  | Generate JSON Web Token
@@ -57,7 +57,9 @@ router.post('/facebook', function(req, res) {
               user.facebook = profile.id;
               user.picture = user.picture || 'https://graph.facebook.com/v2.3/' + profile.id + '/picture?type=large';
               user.displayName = user.displayName || profile.name;
-              user.save(function() {
+              user.host = true;
+              user.save(function(err) {
+                if(err) throw err;
                 var token = createJWT(user);
                 res.send({ token: token });
               });
@@ -74,7 +76,9 @@ router.post('/facebook', function(req, res) {
             user.facebook = profile.id;
             user.picture = 'https://graph.facebook.com/' + profile.id + '/picture?type=large';
             user.displayName = profile.name;
-            user.save(function() {
+            user.host = true;
+            user.save(function(err) {
+              if (err) throw err;
               var token = createJWT(user);
               res.send({ token: token });
             });

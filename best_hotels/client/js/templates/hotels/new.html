@@ -16,7 +16,7 @@
                  </li>
                   <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
                  </li>
-                 <li role="presentation"><a href="#">Host {{user.displayName}}</a></li>
+                 <li role="presentation"><a href="#"><span ng-show="{{user.host}}">Host</span> {{user.displayName}}</a></li>
                  <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
               </ul>
         </div><!-- /.container-fluid -->

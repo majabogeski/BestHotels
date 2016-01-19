@@ -1,14 +1,3 @@
-<!-- <div>
-  <img src="./images/logoblack.png" alt="Smiley face" height="42" width="42">
-</div> -->
-<!-- <div class="navleft">
- <div class="navbar-header">
-    <ul>
-      <li role="presentation" class="logo"><a class="black" href="#">bestHotels</a></li>
-      </li>
-    </ul>
-  </div>
-</div> -->
 <!--   ***************** -->
   <nav>
     <div class="navbar navbar-default">
@@ -23,17 +12,17 @@
                 <input autofocus type="text" name="search" class="form-control" ng-model="search" placeholder="Where do you want to go?">
             </div>
                <ul class="nav navbar-nav pull-right">
-                 <!-- <li><a href="#">My Favorites</a></li> -->
-                <!--  <li><a href="#">User Name</a></li> -->
-                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/signup">Sign Up</a>
-                 </li>
-                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
-                 </li>
-                  <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
-                 </li>
-                 <li role="presentation"><a href="#">Host {{user.displayName}}</a></li>
-                 <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
-              </ul>
+                    <!-- <li><a href="#">My Favorites</a></li> -->
+                    <!-- <li><a href="#">User Name</a></li> -->
+                    <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/signup">Sign Up</a>
+                    </li>
+                    <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
+                    </li>
+                    <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span ng-show="{{user.host}}">Host</span> {{user.displayName}}</a></li>
+                    <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
+               </ul>
         </div><!-- /.container-fluid -->
     </div>
   </nav>
@@ -444,5 +433,6 @@
 <!--   <h1>{{hotels[0].hotelname}}</h1>
 <p>{{hotels.starRating}}</p>
 <p>{{hotels.city}}</p> -->
+<!-- <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a> -->
 <sliderhotels hotel="hotel" ng-repeat="hotel in hotels track by $index"></sliderhotels>
 </div>

@@ -1,4 +1,9 @@
-app.controller("HotelsController", function($scope, HotelService,$location){
+app.controller("HotelsController", function($scope, $auth, HotelService,$location){
+   $scope.userNav = false;
+   if ($auth.getPayload()) {
+    $scope.user = $auth.getPayload().user;
+    $scope.userNav = true;
+  }
   $scope.options = [
     {name: '1 Guest'},
     {name: '2 Guests'},

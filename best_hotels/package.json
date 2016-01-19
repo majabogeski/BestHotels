@@ -9,16 +9,17 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^0.8.5",
     "body-parser": "^1.14.2",
+    "dotenv": "^1.2.0",
     "ejs": "^2.3.4",
     "express": "^4.13.3",
+    "jsonwebtoken": "^5.5.4",
+    "locus": "^1.2.0",
     "method-override": "^2.3.5",
+    "moment": "^2.11.0",
     "mongoose": "^4.3.4",
     "morgan": "^1.6.1",
-    "bcrypt": "^0.8.5",
-    "dotenv": "^1.2.0",
-    "jsonwebtoken": "^5.5.4",
-    "moment": "^2.11.0",
     "request": "^2.67.0"
   }
 }
