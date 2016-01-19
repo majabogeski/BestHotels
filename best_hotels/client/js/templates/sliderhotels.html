@@ -1,5 +1,5 @@
 <div class="col-md-6">
-  <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}} {{hotel.city}}</a>
+  <a ng-href="/hotels/{{hotel._id}}"><span class="hotelname">{{hotel.hotelname}}</span></a>, {{hotel.city}}
   <div class="relative">
     <img class="imgsize" ng-src="{{hotel.photos[currentIndex]}}">
     <div class="arrowleft">

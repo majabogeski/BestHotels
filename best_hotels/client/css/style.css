@@ -256,7 +256,11 @@ height: 267px;*/
 width: 24vw;
 height: 14vw;
 max-width: 100%;
-
+}
+.hotelname{
+  font-size: 22px;
+  color: black;
+  font-weight: bold;
 }
 
 
