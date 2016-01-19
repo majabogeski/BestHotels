@@ -1,43 +1,20 @@
-<div class="container-fluid">
-
- <!--  <div ng-repeat="(key,value) in hotel.amenities">
-    <div ng-show="value==true">{{key}}:{{value}}</div>
-  </div>
-  <div ng-repeat="(key,value) in hotel.hotelSafety">
-    <div ng-show="value==true">{{key}}:{{value}}</div>
-  </div> -->
-
-  <div class="row">
-    <div class="col-md-3">
-       <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}} {{hotel.city}}</a>
+<div class="col-md-6">
+  <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}} {{hotel.city}}</a>
+  <div class="relative">
+    <img class="imgsize" ng-src="{{hotel.photos[currentIndex]}}">
+    <div class="arrowleft">
+      <a href="#" ng-click="prev()">
+        <img class="arrowleft" src="/images/arrow_white_left.png" />
+      </a>
+      <div></div>
+    </div>
+    <div>
+      <a href="#" ng-click="next()">
+        <img class="arrowright" src="/images/arrow-white-right.png"/>
+      </a>
+    </div>
+    <div class="price_on_img">
+         <p class="dollar">${{hotel.price}}</p>
     </div>
   </div>
-  <div class="relative">
-      <div class="row">
-        <div class="col-md-3 hotelimg">
-         <img class="imgsize" ng-src="{{hotel.photos[currentIndex]}}">
-        </div>
-      </div>
-  </div>
-
-      <div class="arrowleft">
-        <a href="#" ng-click="prev()">
-          <img class="arrowleft" src="/images/arrow_white_left.png" />
-        </a>
-        <div></div>
-      </div>
-      <div>
-        <a href="#" ng-click="next()">
-          <img class="arrowright" src="/images/arrow-white-right.png"/>
-        </a>
-        
-      </div>
-      
-      <div class="price_on_img">
-           <p >${{hotel.price}}</p>
-       </div>
-     
-  
-  <!-- <p>hotelName{{hotel.hotelname}}</p> -->
-
 </div>

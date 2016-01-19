@@ -1,4 +1,3 @@
-<!--   ***************** -->
   <nav>
     <div class="navbar navbar-default">
         <div class="container-fluid">
@@ -430,9 +429,17 @@
   </div>
 </div><!-- closing container fluid -->
 <div>
-<!--   <h1>{{hotels[0].hotelname}}</h1>
-<p>{{hotels.starRating}}</p>
-<p>{{hotels.city}}</p> -->
-<!-- <a ng-href="/hotels/{{hotel._id}}">{{hotel.hotelname}}</a> -->
-<sliderhotels hotel="hotel" ng-repeat="hotel in hotels track by $index"></sliderhotels>
+
+<div class="row">
+  <div class="col-xs-6">
+   <div class="container-fluid">
+      <div class="row">
+        <sliderhotels hotel="hotel" ng-repeat="hotel in hotels track by $index"></sliderhotels>
+      </div>
+  </div>
+  </div>
+  <div class="col-xs-6">
+    <!-- add map stuff here -->
+  </div>
 </div>
+</div>   
