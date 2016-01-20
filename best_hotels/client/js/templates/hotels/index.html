@@ -64,13 +64,9 @@
   <!-- ASK QUESTION HOW CAN YOU HIDE SHOW FILTER AND SHOW NO FILLTER SO IT MAKES MORE SENCE UX -->
 <div class="container-fluid">
     <div class="row">
-      <div class="form-group col-md-2" ng-click="allFilters=!allFilters" >
-           <input type="submit" value="More Filters" ng-class="filter" ng-show="showhide=!showhide">
-      </div>
-    </div>
-    <div class="row">
-      <div class="form-group col-md-2" ng-show="">
-           <input type="submit" value="No Filters" class="filter" ng-click="allFilters" ng-show="showhide=!showhide">
+      <div class="form-group col-md-2" ng-click="allFilters=!allFilters">
+           <input type="submit" value="More Filters" class="filter" ng-show="allFilters=!allFilters">
+           <input type="submit" value="No Filters" class="filter" ng-click="allFilters" ng-show="allFilters=!allFilters">
       </div>
     </div>
 </div> 
