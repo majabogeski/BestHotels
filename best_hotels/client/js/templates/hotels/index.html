@@ -8,7 +8,9 @@
               </ul>
             </div>
             <div class="form-group col-md-4 searchindex" ng-class="search">
-                <input autofocus type="text" name="search" class="form-control" ng-model="search" placeholder="Where do you want to go?">
+              <form ng-submit="searchHotel(location)">  
+                <input autofocus type="text" name="search" class="form-control" ng-model="location.search" placeholder="Where do you want to go?">
+              </form>
             </div>
                <ul class="nav navbar-nav pull-right">
                     <!-- <li><a href="#">My Favorites</a></li> -->

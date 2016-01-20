@@ -16,6 +16,12 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
+
+  $scope.searchHotel = function(location){
+   $scope.location={};
+   $location.url("/hotels?destination="+ encodeURIComponent(location.search));
+  };
+
   if ($location.search().destination) {
     HotelService.getHotels($location.search().destination).then(function(res){
       console.log(res.data);
@@ -29,7 +35,7 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
       $scope.errors = err; 
     });
 
-    function initMap() {
+    var initMap = function() {
       // Create a map object and specify the DOM element for display.
       var map = new google.maps.Map(document.getElementById('map'), {
         scrollwheel: false,
