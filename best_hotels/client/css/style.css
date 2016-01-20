@@ -36,6 +36,48 @@
  /* border-color: #BFBFBF;*/
   border-width: 4px;
 }
+/*==========  Mobile First Method  ==========*/
+
+/* Custom, iPhone Retina */ 
+@media only screen and (min-width : 320px) {
+  #map {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (min-width : 480px) {
+  #map {
+    width: 400px;
+    height: 500px;
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (min-width : 768px) {
+  #map {
+    width: 500px;
+    height: 600px;
+  }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+  #map {
+    width: 600px;
+    height: 700px;
+  }
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (min-width : 1200px) {
+  #map {
+    width: 700px;
+    height: 800px;
+  }
+}
+
 
 
 /*.navig{
@@ -104,6 +146,10 @@
 .profileimage{
   border-radius: 50%;
   }
+ /* MAP*/
+.selected {
+  background: yellow;
+}
 
 /*SEARCH BUTTON*/
 .searchButton {
@@ -326,13 +372,13 @@ h1 {
 
 .arrowleft{
   position: absolute;
-  top: 35px;
-  left: 13px;
+  top: 2.5vw;
+  left: .6vw;
 }
 .arrowright{
   position: absolute;
-  top: 72px;
-  left: 300px;
+  top: 5vw;
+  left: 20vw;
 }
 .relative{
   position: relative;

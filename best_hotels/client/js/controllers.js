@@ -16,16 +16,48 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
-  HotelService.getHotels($location.search().destination).then(function(hotels){
-    console.log(hotels.data);
-    // console.log(hotels.data[0].hotelname);
-    // console.log(hotels.data[1].hotelname);
-    // console.log(hotels.data[0].photos[0]);
-    // console.log(hotels.data[0].address);
-    $scope.hotels = hotels.data;
-  }).catch(function(err){
-    $scope.errors = err; 
-  });
+  if ($location.search().destination) {
+    HotelService.getHotels($location.search().destination).then(function(res){
+      console.log(res.data);
+      // console.log(hotels.data[0].hotelname);
+      // console.log(hotels.data[1].hotelname);
+      // console.log(hotels.data[0].photos[0]);
+      // console.log(hotels.data[0].address);
+      $scope.hotels = res.data;
+      initMap();
+    }).catch(function(err){
+      $scope.errors = err; 
+    });
+
+    function initMap() {
+      // Create a map object and specify the DOM element for display.
+      var map = new google.maps.Map(document.getElementById('map'), {
+        scrollwheel: false,
+        zoom: 10
+      });
+
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode( { 'address': $location.search().destination}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          map.setCenter(results[0].geometry.location);
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      });
+      $scope.hotels.forEach(function(hotel){
+        geocoder.geocode( { 'address': hotel.address}, function(results, status) {
+          if (status == google.maps.GeocoderStatus.OK) {
+            var marker = new google.maps.Marker({
+                map: map,
+                position: results[0].geometry.location
+            });
+          } else {
+            alert("Geocode was not successful for the following reason: " + status);
+          }
+        });
+      });
+    }
+  }
 });
 
 app.controller("NewHotelController", function($scope, $location, $auth, HotelService){
