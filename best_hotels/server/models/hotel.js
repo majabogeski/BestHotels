@@ -41,17 +41,14 @@ var hotelSchema = new mongoose.Schema({
     type: Number,
     required: true
   },
-  accommodates:{
-      type: Number,
-      required: true
+  accommodates: { 
+    name: { type: String, required: true }
   },
-  hotelroomtypes:{
-    type: String,
-    required: true
+  hotelroomtypes: {
+    name: { type: String, required: true }
   },
-  bedNumber:{
-    type: Number,
-    required: true
+  bedNumber: {
+    name: { type: Number, required: true }
   },
 
   

@@ -62,11 +62,13 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
           }
         });
       });
-    }
+    };
   }
 });
 
-app.controller("NewHotelController", function($scope, $location, $auth, HotelService){
+app.controller("NewHotelController", function($scope, $location,$routeParams, $auth, HotelService){
+ 
+
   // Get user information from the token
   $scope.userNav = false;
   if ($auth.getPayload()) {
@@ -93,15 +95,44 @@ app.controller("NewHotelController", function($scope, $location, $auth, HotelSer
       });
     });
   };
+ // creating a new hotel accommodates option
+  $scope.accommodates = [
+    {name: '1 Guests'},
+    {name: '2 Guests'},
+    {name: '3 Guests'},
+    {name: '4 Guests'},
+    {name: '5 Guests'},
+    {name: '6 Guests'},
+    {name: '7 Guests'},
+    {name: '8 Guests'},
+    {name: '9 Guests'},
+    {name: '10+ Guests'}
+  ];
+//creating a new hotel HOTEL ROOM TYPES
+  $scope.roomtypes = [
+    {name: 'SINGLE ROOM'},
+    {name: 'DOUBLE ROOM'},
+    {name: 'TWIN ROOM'},
+    {name: 'INTERCONNECTING ROOMS'},
+    {name: 'ADJOINING ROOMS'},
+    {name: 'HOLLYWOOD TWIN ROOM'},
+    {name: 'DUPLEX'},
+    {name: 'CABANA'},
+    {name: 'STUDIO ROOM'},
+    {name: 'KING BEDROOM'},
+    {name: 'QUEEN BEDROOM'}
+  ];
+  //bedsNumber
+  $scope.bednumbers = [
+    {name: '1'},
+    {name: '2'},
+    {name: '3'},
+    {name: '4'},
+    {name: '5'},
+    {name: '6'}
+  ];
 });
 
-  // $scope.hotel = {};
-  // $scope.hotel.amenities = {};
-  // $scope.hotel.amenities.wirelessInternet = true;
-
-  // $scope.showHotel = function() {
-  //   console.log($scope.hotel);
-  // };
 
 app.controller("ShowHotelController", function($scope, $auth, $location, $routeParams, HotelService){
   // Get user information from the token

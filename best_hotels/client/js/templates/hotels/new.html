@@ -153,7 +153,7 @@
                   <label class="sr-only" for="price">Amount (in dollars)</label>
                     <div class="input-group">
                       <div class="input-group-addon">$</div>
-                       <input type="" class="form-control col-md-3" id="price" name="price" class="form-control" ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="hotel.price">
+                       <input type="" class="form-control col-md-3" id="price" name="price"  ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="hotel.price">
                     </div>
                     <div>
                       <p ng-show="hotelForm.price.$invalid && !hotelForm.price.$pristine" class="help-block">Valid price nubmer required.</p>
@@ -168,46 +168,18 @@
               </div>
               <div class="row">
                 <div class="form-group col-md-2">
-                  <select class="form-control" name="accommodates" id="accommodates" ng-model="hotel.accommodates">
-                    <option>ACCOMMODATES</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option> 
-                    <option>6</option>
-                    <option>7</option>
-                    <option>8</option>
-                    <option>9</option>
-                    <option>10</option>  
-                  </select>
+                    <label for="accommodates">Number of Guests</label>
+                    <select class="form-control" name="accommodates" id="accommodates" ng-model="hotel.accommodates" ng-options="ac.name for ac in accommodates"> 
+                    </select>
                 </div>
                 <div class="form-group col-md-3">
-                  <select class="form-control" nema="hotelroomtypes" id="hotelroomtypes" ng-model="hotel.hotelroomtypes">
-                    <option>HOTEL ROOM TYPES</option>
-                    <option>SINGLE ROOM </option>
-                    <option>DOUBLE ROOM</option>
-                    <option>TWIN ROOM</option>
-                    <option>INTERCONNECTING ROOMS</option>
-                    <option>ADJOINING ROOMS </option>
-                    <option>HOLLYWOOD TWIN ROOM</option>
-                    <option>DUPLEX</option>
-                    <option>CABANA</option>
-                    <option>STUDIO ROOM</option> 
-                    <option>SUITE ROOM</option>
-                    <option>KING BEDROOM</option>
-                    <option>QUEEN BEDROOM </option>
+                  <label for="hotelroomtype">Type of Room</label>
+                  <select class="form-control" name="hotelroomtype" id="hotelroomtype" ng-model="hotel.hotelroomtypes" ng-options="rt.name for rt in roomtypes">
                   </select>
                 </div>
                 <div class="form-group col-md-2">
-                  <select class="form-control" name="bedNumber" id="bedNumber" ng-model="hotel.bedNumber"> 
-                    <option>NUMBER OF BEDS</option>
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                    <option>4</option>
-                    <option>5</option> 
-                    <option>6</option>
+                  <label for="bedNumber">Number of Beds</label>
+                  <select class="form-control" name="bedNumber" id="bedNumber" ng-model="hotel.bedNumber" ng-options="bn.name for bn in bednumbers">
                   </select>
                 </div>
               </div><!-- the space row ends -->
