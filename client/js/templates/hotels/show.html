@@ -15,13 +15,10 @@
                     <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
                     </li>
                     <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
+                    <li role="presentaton"><a href="/hotels/new"><span ng-show="{{user.host}}">Add Hotel</span></a></li> 
                     </li>
                     <li role="presentation"><a href="#"><span ng-show="{{user.host}}">Host</span> {{user.displayName}}</a></li>
                     <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
-
-                    <li role="presentaton"><a href="/hotels/new"<ng-show="user._id===hotel.user">Add Hotel</a>
-                     
-                    </li>
                </ul>
         </div><!-- /.container-fluid -->
       <img class="imgshow" ng-src="{{hotel.photos[0]}}">
@@ -38,9 +35,9 @@
               <h2>{{hotel.hotelname}} {{hotel.starRating}}</h2>
             </div>
             <div class="pull-right">
-              <a ng-href="/hotels/new" class="btn btn-default" ng-show="user._id===hotel.user">
+              <!-- <a ng-href="/hotels/new" class="btn btn-default" ng-show="user._id===hotel.user">
                 add hotel
-              </a>
+              </a> -->
               <a ng-href="/hotels/{{hotel._id}}/edit" class="btn btn-default" ng-show="user._id===hotel.user">
                 edit
               </a>
