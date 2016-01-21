@@ -16,6 +16,36 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
+ 
+   $scope.amenities = {
+            hourCheckIn: false,
+            airConditioning: false,
+            breakfast: false,
+            buzzer: false,
+            cableTv: false,
+            jacuzzi: false,
+            doorman: false,
+            dryer: false,
+            elevator: false,
+            essentials: false,
+            family: false,
+            tv: false,
+            events: false,
+            parking: false,
+            gym: false,
+            hangers: false,
+            hotTub: false,
+            hairDryer: false,
+            heating: false,
+            fireplace: false,
+            internet: false,
+            iron: false,
+            pets: false,
+            wheelchair: false,
+            shampoo: false,
+            washer: false,
+            smoking: false
+      };
 
   $scope.searchHotel = function(location){
    $scope.location={};
@@ -311,7 +341,7 @@ app.controller("LoginController", function($scope, $auth, $location){
         console.log('You have successfully signed-in');
       })
       .catch(function(response) {
-        console.log(response.data.message);
+        $scope.error = response.data.message;
       });
   };
   $scope.authenticate = function(provider) {

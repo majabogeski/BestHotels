@@ -96,9 +96,22 @@
            <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
           </div>
         </div>
-   
-    <div ng-show="additionalAmenites">
-                 <div class="row">
+        <div class="row">
+          <div class=" form-group col-xs-1">
+          </div>
+           <div class="col-xs-6">
+              <div class="row">
+                <div ng-show="additionalAmenites">
+                  <label class="col-md-4 hotel-checkbox" ng-repeat="(key, text) in amenities">
+                    <input  type="checkbox" checklist-model="amenity.amenities" checklist-value="key"> <span class="space">{{key}}</span>
+                  </label>
+                </div>
+              </div>
+            </div>
+        </div>
+            
+
+                <!--  <div class="row">
                     <div class="form-group col-md-1" >
                       <h6></h6>
                     </div>
@@ -117,8 +130,8 @@
                           <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.amenities.breakfast" >  Breakfast
                       </label>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+            <!--     <div class="row">
                     <div class="form-group col-md-1" >
                       <h6></h6>
                     </div>
@@ -137,8 +150,8 @@
                           <input type="checkbox" id="jacuzzi" value="jacuzzi" ng-model="hotel.amenities.jacuzzi">   Jacuzzi 
                       </label>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+               <!--  <div class="row">
                     <div class="form-group col-md-1" >
                       <h6></h6>
                     </div>
@@ -157,8 +170,8 @@
                           <input type="checkbox" id="elevator" value="elevator" ng-model="hotel.amenities.elevator">    Elevator in Building
                       </label>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+           <!--      <div class="row">
                     <div class="form-group col-md-1" >
                       <h6></h6>
                     </div>
@@ -402,8 +415,8 @@
                           <input type="checkbox" id="lighthouse" value="lighthouse" ng-model="hotel.propertyType.lighthouse">      Lighthouse
                       </label>
                     </div>
-                </div>
-                <div class="row">
+                </div> -->
+               <!--  <div class="row">
                     <div class="form-group col-md-1" >
                       <h6></h6>
                     </div>
@@ -422,8 +435,8 @@
                           <input type="checkbox" id="treehouse" value="treehouse" ng-model="hotel.propertyType.treehouse">      Treehouse
                       </label>
                     </div>
-                </div>
-              </div>
+                </div> -->
+              
   </div>
 </div><!-- closing container fluid -->
 <div class="container-fluid">
