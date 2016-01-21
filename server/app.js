@@ -23,6 +23,6 @@
     res.sendFile(path.join(__dirname, '../client', 'index.html'));
   });
 
-  app.listen(rocess.env.PORT || 3000, function(){
+  app.listen(process.env.PORT || 3000, function(){
     console.log("Server starting on port 3000");
   });
