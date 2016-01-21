@@ -304,7 +304,11 @@ app.controller("LoginController", function($scope, $auth, $location){
     $auth.login($scope.user)
       .then(function(response) {
         $auth.setToken(response);
-        $location.path('/hotels/new');
+        if ($auth.getPayload().user.host) {
+          $location.path('/hotels/new');
+        } else {
+          $location.path('/');
+        }
         console.log('You have successfully signed-in');
       })
       .catch(function(response) {
