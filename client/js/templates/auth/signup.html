@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="row">
+    <div class="center-form panel">
+      <div class="panel-body">
+        <h2 class="text-center">Sign up</h2>
+        <form method="post" ng-submit="signup()" name="signupForm">
+          <div class="form-group has-feedback">
+            <input class="form-control input-lg" type="text" name="displayName" ng-model="user.displayName" placeholder="Name" required autofocus>
+          </div>
+          <div class="form-group has-feedback">
+            <input class="form-control input-lg" type="email" id="email" name="email" ng-model="user.email" placeholder="Email" required>
+          </div>
+          <div class="form-group has-feedback">
+            <label>Host
+              <input type="checkbox" ng-model="user.host">
+            </label>
+          </div>
+          <div class="form-group has-feedback">
+            <input password-strength class="form-control input-lg" type="password" name="password" ng-model="user.password" placeholder="Password" required>
+          </div>
+          <div class="form-group has-feedback">
+            <input password-match="user.password" class="form-control input-lg" type="password" name="confirmPassword" ng-model="confirmPassword" placeholder="Confirm Password">
+          </div>
+          <p class="text-center text-muted"><small>By clicking on Sign up, you agree to <a href="#">terms & conditions</a> and <a href="#">privacy policy</a></small></p>
+          <button type="submit" class="btn btn-lg btn-block btn-primary">Sign up</button>
+          <br/>
+          <p class="text-center text-muted">Already have an account? <a href="/login">Log in now</a></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<button ng-click="authenticate('facebook')">Sign up with Facebook</button>
