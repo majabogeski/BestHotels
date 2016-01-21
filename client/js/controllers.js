@@ -84,11 +84,10 @@ app.controller("NewHotelController", function($scope, $location,$routeParams, $a
    }
    // console.log($scope.photos);
   };
-  
   $scope.addHotel = function(hotel){
     HotelService.addHotel(hotel).then(function(res) {
       // $location.path('/');
-      $location.path('/hotels/'+hotel._id);
+      $location.path('/hotels/'+res.data._id);
     }, function(reserror) {
       console.log(reserror);
       $scope.errors = Object.keys(reserror.data.error.errors).map(function(el){
