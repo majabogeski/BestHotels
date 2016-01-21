@@ -20,7 +20,7 @@
                  <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
               </ul>
         </div><!-- /.container-fluid -->
-      <img class="imgshow" ng-src="{{hotel.photos[1]}}">
+      <img class="imgshow" ng-src="{{hotel.photos[0]}}">
     </div>
   </nav>
 <!-- <h1>See some information about {{hotel}}</h1> -->
@@ -28,6 +28,15 @@
 <!-- </div> -->
 <div class="container-fluid">
  <div class="col-md-12 col-md-offset-1">
+  <div class="row">
+    <a ng-href="/hotels/{{hotel._id}}/edit" class="btn btn-default" ng-show="user._id===hotel.user">
+      edit
+    </a>
+    <div ng-click="deleteHotel(hotel)" class="btn btn-default" ng-show="user._id===hotel.user">
+      delete
+    </div>
+
+  </div>
       <div class="col-md-6">
           <div class="row">
             <div class="col-md-6">

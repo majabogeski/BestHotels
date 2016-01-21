@@ -183,6 +183,12 @@ app.controller("ShowHotelController", function($scope, $auth, $location, $routeP
     {name: '2018'}
   ];
 
+   $scope.deleteHotel = function(hotel){
+    console.log("controller");
+    HotelService.deleteHotel(hotel._id).then(function(data){
+      $location.path('/');
+    });
+  };
 });
 
 
@@ -193,15 +199,55 @@ app.controller("EditHotelController", function($scope, $location, $routeParams,H
  
   $scope.editHotel = function(hotel){
     HotelService.editHotel(hotel).then(function(){
-      $location.path('/hotels');
+      $location.path('/hotels/'+hotel._id);
     });
+  };
+  $scope.accommodates = [
+    {name: '1 Guests'},
+    {name: '2 Guests'},
+    {name: '3 Guests'},
+    {name: '4 Guests'},
+    {name: '5 Guests'},
+    {name: '6 Guests'},
+    {name: '7 Guests'},
+    {name: '8 Guests'},
+    {name: '9 Guests'},
+    {name: '10+ Guests'}
+  ];
+//creating a new hotel HOTEL ROOM TYPES
+  $scope.roomtypes = [
+    {name: 'SINGLE ROOM'},
+    {name: 'DOUBLE ROOM'},
+    {name: 'TWIN ROOM'},
+    {name: 'INTERCONNECTING ROOMS'},
+    {name: 'ADJOINING ROOMS'},
+    {name: 'HOLLYWOOD TWIN ROOM'},
+    {name: 'DUPLEX'},
+    {name: 'CABANA'},
+    {name: 'STUDIO ROOM'},
+    {name: 'KING BEDROOM'},
+    {name: 'QUEEN BEDROOM'}
+  ];
+  //bedsNumber
+  $scope.bednumbers = [
+    {name: '1'},
+    {name: '2'},
+    {name: '3'},
+    {name: '4'},
+    {name: '5'},
+    {name: '6'}
+  ];
+  $scope.onUCUploadComplete = function(info){
+   console.log(info);
+   $scope.hotel.photos=[];
+   for (var i = 0; i < info.count; i++){
+    $scope.hotel.photos.push(info.cdnUrl + "nth/"+i+"/");
+   }
+   // console.log($scope.photos);
   };
 
-  $scope.deleteHotel = function(hotel){
-    HotelService.deleteHotel(hotel._id).then(function(data){
-      $location.path('/hotels');
-    });
-  };
+
+
 });
 
 // app.controller("DisplayImagesController",function($scope, $location, $routeParams,HotelService){
