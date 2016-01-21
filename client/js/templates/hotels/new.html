@@ -31,12 +31,9 @@
     </div>
   <div class="container">
    <div>
-     <p ng-repeat="error in errors">{{error}}</p>
+     <p class="errors"ng-repeat="error in errors">{{error}}</p>
    </div>
     <div class="row">
-<!--       <div class="col-md-12 page-header">
-        <h3>Registrant</h3>
-      </div> -->
         <div>
        <!--  ng-submit="submitForm(hotelForm.$valid)"novalidate -->
           <form name="hotelForm" ng-submit="addHotel(hotel)" >

@@ -117,7 +117,6 @@ var hotelSchema = new mongoose.Schema({
           ref: "User",
           required: true
         }
- 
  })
 .index({          //http://stackoverflow.com/questions/24714166/full-text-search-with-weight-in-mongoose
   'city':'text'
