@@ -1,0 +1,544 @@
+  <nav>
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <ul>
+                <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack">bestHotels</a>
+                </li>
+              </ul>
+            </div>
+              <ul class="nav navbar-nav pull-right">
+                 <!-- <li><a href="#">My Favorites</a></li> -->
+                <!--  <li><a href="#">User Name</a></li> -->
+                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/signup">Sign Up</a>
+                 </li>
+                 <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
+                 </li>
+                  <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
+                 </li>
+                 <li role="presentation"><a href="#"><span ng-show="{{user.host}}">Host</span> {{user.displayName}}</a></li>
+                 <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
+              </ul>
+        </div><!-- /.container-fluid -->
+    </div>
+  </nav>
+  <div class="container top">
+    <div class="row">
+      <div class="col-md-12">
+        <h2>Create a hotel listing</h2>
+        </div>
+      </div>
+    </div>
+  <div class="container">
+   <div>
+     <p ng-repeat="error in errors">{{error}}</p>
+   </div>
+    <div class="row">
+<!--       <div class="col-md-12 page-header">
+        <h3>Registrant</h3>
+      </div> -->
+        <div>
+       <!--  ng-submit="submitForm(hotelForm.$valid)"novalidate -->
+          <form name="hotelForm" ng-submit="editHotel(hotel)" >
+            <div class="container">
+<!--              <div class="row">
+              <div class="form-group col-md-6" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                 <label class="control-label" for="hotelname">Username</label>
+                 <input autofocus type="text" name="username" class="form-control" ng-model="hotel.username" ng-required="true" id="username" ng-minlength="3" ng-maxlength="12">
+                <p ng-show="hotelForm.username.$error.minlength" class="help-block">Username is too short, has to be more then two characters.</p>
+                <p ng-show="hotelForm.username.$error.maxlength" class="help-block">username is too long.</p>
+              </div>
+             </div> 
+              <div class="row">
+                <div class="form-group col-md-6" ng-class="{ 'has-error' : hotelForm.email.$invalid && !hotelForm.email.$pristine ,'has-success' : hotelForm.email.$valid }">
+                  <label class="control-label" for="email">Email</label>
+                  <input type="email" id="email" name="email" class="form-control" ng-required="true" ng-model="hotel.email">
+                  <p ng-show="hotelForm.email.$invalid && !hotelForm.email.$pristine" class="help-block">Enter a valid email.</p>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-6" ng-class="{ 'has-error' : hotelForm.password.$invalid && !hotelForm.password.$pristine ,'has-success' : hotelForm.password.$valid }">
+                  <label class="control-label" for="password">Password</label>
+                  <input type="password" name="password" class="form-control" ng-model="hotel.password" id="password" ng-minlength="3" ng-maxlength="18" ng-required="true">
+                  <p ng-show="hotelForm.password.$error.minlength" class="help-block">Password is too short.</p>
+                  <p ng-show="hotelForm.password.$error.maxlength" class="help-block">password is too long.</p>
+                </div>
+              </div>
+              <!-- HOTEL INFORMATION & DESCRIPTION -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Hotel Info</h3>
+                </div>
+               </div>
+                  <div class="row">
+                    <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                       <label class="control-label" for="hotelname">Hotel Name</label>
+                       <input autofocus type="text" name="hotelname" class="form-control" ng-model="hotel.hotelname" ng-required="true" id="hotelname" ng-minlength="3" ng-maxlength="18">
+                      <p ng-show="hotelForm.hotelname.$error.minlength" class="help-block">hotelname is too short, has to be more then two characters.</p>
+                      <p ng-show="hotelForm.hotelname.$error.maxlength" class="help-block">Hotelname is too long.</p>
+                    </div>
+                    <!-- STARS RATING -->
+                    <div class="form-group col-md-3" ng-class="{'has-error' : hotelForm.hotelname.$invalid && !hotelForm.hotelname.$pristine ,'has-success' : hotelForm.hotelname.$valid }">
+                       <label class="control-label" for="hotelname"> Rating</label>
+
+                      <!-- http://code.stephenmorley.org/html-and-css/star-rating-widget/ -->
+                      <div>
+                        <span class="starRating">
+                          <input id="rating5" type="radio" ng-model="hotel.starRating" name="rating" value="5">
+                          <label for="rating5">5</label>
+                          <input id="rating4" type="radio" ng-model="hotel.starRating" name="rating" value="4">
+                          <label for="rating4">4</label>
+                          <input id="rating3" type="radio" ng-model="hotel.starRating" name="rating" value="3">
+                          <label for="rating3">3</label>
+                          <input id="rating2" type="radio" ng-model="hotel.starRating" name="rating" value="2">
+                          <label for="rating2">2</label>
+                          <input id="rating1" type="radio" ng-model="hotel.starRating" name="rating" value="1">
+                          <label for="rating1">1</label>
+                        </span>
+                      </div>
+                    </div>
+                 </div> <!--end hotel name--> 
+             <div class="row">
+               <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.address.$invalid && !hotelForm.address.$pristine ,'has-success' : hotelForm.address.$valid }">
+                     <label class="control-label" for="address">Address</label>
+                     <input autofocus type="text" name="address" class="form-control" ng-model="hotel.address" ng-required="true" id="address" ng-minlength="3" ng-maxlength="30">
+                    <p ng-show="hotelForm.address.$error.minlength" class="help-block">Required.</p>
+                </div>
+              </div> <!-- end row address -->
+              <div class="row">
+               <div class="form-group col-md-4" ng-class="{'has-error' : hotelForm.city.$invalid && !hotelForm.city.$pristine ,'has-success' : hotelForm.city.$valid }">
+                     <label class="control-label" for="city">City</label>
+                     <input autofocus type="text" name="city" class="form-control" ng-model="hotel.city" ng-required="true" id="city" ng-minlength="3" ng-maxlength="30">
+                    <p ng-show="hotelForm.city.$error.minlength" class="help-block">Required.</p>
+               </div>
+               <div class="form-group col-md-2" ng-class="{'has-error' : hotelForm.state.$invalid && !hotelForm.state.$pristine ,'has-success' : hotelForm.state.$valid }">
+                     <label class="control-label" for="state">State</label>
+                     <input autofocus type="text" name="state" class="form-control" ng-model="hotel.state" ng-required="true" id="state" ng-minlength="2" ng-maxlength="30">
+                    <p ng-show="hotelForm.state.$error.minlength" class="help-block">Required.</p>
+               </div>
+
+              <div class="form-group col-md-2" ng-class="{ 'has-error' : hotelForm.zip.$invalid && !hotelForm.zip.$pristine ,'has-success' : hotelForm.zip.$valid }">
+                   <label class="control-label" for="zip">Zip Code(5 digits)</label>
+                   <input type="number" id="zip" name="zip" class="form-control" ng-pattern="/^[0-9]{5}$/" ng-required="true" ng-model="hotel.zip">
+                   <p ng-show="hotelForm.zip.$invalid && !hotelForm.zip.$pristine" class="help-block">Enter a valid zip.</p>
+              </div>
+              </div> <!-- end row state -->
+               <div class="row">
+                <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine ,'has-success' : hotelForm.hotelemail.$valid }">
+                  <label class="control-label" for="hotelemail">Hotel Email</label>
+                  <input type="email" id="hotelemail" name="hotelemail" class="form-control" ng-required="true" ng-model="hotel.hotelemail">
+                  <p ng-show="hotelForm.hotelemail.$invalid && !hotelForm.hotelemail.$pristine" class="help-block">Entered a valid email.</p>
+                </div>
+                 <div class="form-group col-md-4" ng-class="{ 'has-error' : hotelForm.phone.$invalid && !hotelForm.phone.$pristine ,'has-success' : hotelForm.phone.$valid }">
+                    <label class="control-label" for="phone">Phone Number (xxx)xxx-xxxx</label>
+                    <input type="" id="phone" name="phone" class="form-control" ng-required="true" ng-pattern="/^((((\(\d{3}\))|(\d{3}-))\d{3}-\d{4})|(\+?\d{2}((-| )\d{1,8}){1,5}))(( x| ext)\d{1,5}){0,1}$/" ng-model="hotel.phone">
+                    <p ng-show="hotelForm.phone.$invalid && !hotelForm.phone.$pristine" class="help-block">Valid phone nubmer required.</p>
+                </div>
+              </div> 
+              <div class="row"> 
+                <div class="form-group col-md-8" ng-class="{ 'has-error' : hotelForm.description.$invalid && !hotelForm.description.$pristine ,'has-success' : hotelForm.description.$valid }" >
+                <label class="control-label" for="descrption" ng-model="hotel.description" ng-required="true" id="description" >Hotel Description</label>
+                  <textarea type="text"class="form-control" rows="3" id="description" name="description" ng-required="true" ng-model="hotel.description" ng-minlength="20" ng-maxlength="6000"></textarea>
+                  <p ng-show="hotelForm.description.$error.minlength" class="help-block">  Description is too short, has to be more then 20 characters.</p>
+                </div>
+              </div>
+              <!-- PRICE -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Pricing</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="sr-only" for="price">Amount (in dollars)</label>
+                    <div class="input-group">
+                      <div class="input-group-addon">$</div>
+                       <input type="" class="form-control col-md-3" id="price" name="price"  ng-required="true" ng-pattern="/^\d{0,5}(?!(\.|,)0{2})(\.|,)\d{1,2}$/" ng-model="hotel.price">
+                    </div>
+                    <div>
+                      <p ng-show="hotelForm.price.$invalid && !hotelForm.price.$pristine" class="help-block">Valid price nubmer required.</p>
+                    </div>
+                </div>
+              </div>
+            <!-- THE SPACE -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>The Space</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-2">
+                    <label for="accommodates">Number of Guests</label>
+                    <select class="form-control" name="accommodates" id="accommodates" ng-model="hotel.accommodates" ng-options="ac.name for ac in accommodates"> 
+                    </select>
+                </div>
+                <div class="form-group col-md-3">
+                  <label for="hotelroomtype">Type of Room</label>
+                  <select class="form-control" name="hotelroomtype" id="hotelroomtype" ng-model="hotel.hotelroomtypes" ng-options="rt.name for rt in roomtypes">
+                  </select>
+                </div>
+                <div class="form-group col-md-2">
+                  <label for="bedNumber">Number of Beds</label>
+                  <select class="form-control" name="bedNumber" id="bedNumber" ng-model="hotel.bedNumber" ng-options="bn.name for bn in bednumbers">
+                  </select>
+                </div>
+              </div><!-- the space row ends -->
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Amenities</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="wirelessInternet" value="wirelessInternet" ng-model="hotel.amenities.wirelessInternet"> Wireless Internet
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="pool" value="pool" ng-model="hotel.amenities.pool">  Pool
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="kitchen" value="kitchen" ng-model="hotel.amenities.kitchen">  Kitchen
+                  </label>
+                </div> 
+                <div ng-click="additionalAmenites=!additionalAmenites">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="additionalAmenites">
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hourCheckIn" value="hourCheckIn" ng-model="hotel.amenities.hourCheckIn">    24-Hour Check-in
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="airConditioning" value="airConditioning" ng-model="hotel.amenities.airConditioning">    Air Conditioning
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.amenities.breakfast" >  Breakfast
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="buzzer" value="buzzer" ng-model="hotel.amenities.buzzer" >    Buzzer/Wireless Intercom
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cableTv" value="cableTv" ng-model="hotel.amenities.cableTv">    Cable TV
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="jacuzzi" value="jacuzzi" ng-model="hotel.amenities.jacuzzi">   Jacuzzi 
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="doorman" value="doorman" ng-model="hotel.amenities.doorman">      Doorman
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="dryer" value="dryer" ng-model="hotel.amenities.dryer">    Dryer
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="elevator" value="elevator" ng-model="hotel.amenities.elevator">    Elevator in Building
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="essentials" value="essentials" ng-model="hotel.amenities.essentials">        Essentials
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="family" value="family" ng-model="hotel.amenities.family">    Family/Kid Friendly
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="tv" value="tv" ng-model="hotel.amenities.tv">    tv
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="events" value="events" ng-model="hotel.amenities.events">     Suitable for Events         
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="parking" value="parking" ng-model="hotel.amenities.parking">      Free Parking on Premises
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="gym" value="gym" ng-model="hotel.amenities.gym">    Gym
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hangers" value="hangers" ng-model="hotel.amenities.hangers">          Hangers
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hotTub" value="hotTub" ng-model="hotel.amenities.hotTub">      Hot Tub
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hairDryer" value="hairDryer" ng-model="hotel.amenities.hairDryer">    Hair Dryer
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="heating" value="heating" ng-model="hotel.amenities.heating">            Heating
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="fireplace" value="fireplace" ng-model="hotel.amenities.fireplace">      Indoor Fireplace
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="internet" value="internet" ng-model="hotel.amenities.internet">    Internet
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="iron" value="iron" ng-model="hotel.amenities.iron">              Iron
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="pets" value="pets" ng-model="hotel.amenities.pets">        Pets Allowed
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="wheelchair" value="wheelchair" ng-model="hotel.amenities.wheelchair">    Wheelchair Accessible
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="shampoo" value="shampoo" ng-model="hotel.amenities.shampoo">              Shampoo
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="washer" value="washer" ng-model="hotel.amenities.washer">        Washer      
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="smoking" value="smoking" ng-model="hotel.amenities.smoking">    Smoking Allowed
+                      </label>
+                    </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Hotel Safety</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="smokeDetector" value="smokeDetector" ng-model="hotel.hotelSafety.smokeDetector">  Smoke Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="carbon" value="carbon" ng-model="hotel.hotelSafety.carbon">  Carbon Monoxide Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="aidKit" value="aidKit" ng-model="hotel.hotelSafety.aidKit">  First Aid Kit
+                  </label>
+                </div> 
+                <div ng-click="hotelSafety=!hotelSafety">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="hotelSafety">
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="safetyCard" value="safetyCard" ng-model="hotel.hotelSafety.safetyCard">   Safety Card 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="fireExtinguisher" value="fireExtinguisher" ng-model="hotel.hotelSafety.fireExtinguisher">    Fire Extinguisher
+                      </label>
+                    </div>
+                </div>
+              </div>
+               <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Property Type</h3>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="hotel" value="hotel" ng-model="hotel.propertyType.hotel">  Hotel
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="house" value="house" ng-model="hotel.propertyType.house">  House   
+                  </label>
+                </div>
+                <div class="form-group col-md-3">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.propertyType.breakfast">  Bed & Breakfast
+                  </label>
+                </div> 
+                <div ng-click="propertyType=!propertyType">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="propertyType">
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="boat" value="boat" ng-model="hotel.propertyType.boat">    Boat 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="bungalow" value="bungalow" ng-model="hotel.propertyType.bungalow">    Bungalow
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cabin" value="cabin" ng-model="hotel.propertyType.cabin">    Cabin
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="camper" value="camper" ng-model="hotel.propertyType.camper">    Camper/RV 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cave" value="cave" ng-model="hotel.propertyType.cave">    Cave
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="chalet" value="chalet" ng-model="hotel.propertyType.chalet">      Chalet
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="condominium" value="condominium" ng-model="hotel.propertyType.condominium">    Condominium 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="villa" ng-model="hotel.propertyType.villa" >    Villa
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="lighthouse" value="lighthouse" ng-model="hotel.propertyType.lighthouse">      Lighthouse
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="loft" value="loft" ng-model="hotel.propertyType.loft">      Loft
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="tent" value="tent" ng-model="hotel.propertyType.tent">      Tent
+                      </label>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="treehouse" value="treehouse" ng-model="hotel.propertyType.treehouse">      Treehouse
+                      </label>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 page-header">
+                  <h3>Add Photos</h3>
+                </div>
+              </div> 
+              <div class="row">
+                <div class="form-group col-md-3">
+                 <!--  <input type="hidden" ng-model="hotel.photos" role="uploadcare-uploader"
+                  data-images-only="true"
+                  data-multiple="true"/> -->
+                  <input
+                      uploadcare-widget
+                      
+                      data-public-key="4b66182859ad52a18eb0"
+                      data-tabs="file url"
+                      data-images-only="true"
+                      data-preview-step="true"
+                      data-clearable="true"
+                      data-multiple="true"
+                      data-crop="400:200"
+                      on-upload-complete="onUCUploadComplete(info)"
+                      on-widget-ready="onUCWidgetReady(widget)"
+                      
+ />
+                </div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="form-group col-md-12 col-md-offset-2">
+                  <div class="form-group col-md-6 pull-right">
+                   <input type="submit" value="create" class="myButton">
+                  </div>
+                </div>  
+              </div>
+          </form>
+        </div>  
+      </div><!-- end fist row -->
+    </div>
+
+
+
+  
+
+

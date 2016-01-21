@@ -1,0 +1,441 @@
+  <nav>
+    <div class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+              <ul>
+                <li role="presentation" class="logoindex"><a ng-href="/home.html" id="navblack" >bestHotels</a>
+                </li>
+              </ul>
+            </div>
+            <div class="form-group col-md-4 searchindex" ng-class="search">
+              <form ng-submit="searchHotel(location)">  
+                <input autofocus type="text" name="search" class="form-control" ng-model="location.search" placeholder="Where do you want to go?">
+              </form>
+            </div>
+               <ul class="nav navbar-nav pull-right">
+                    <!-- <li><a href="#">My Favorites</a></li> -->
+                    <!-- <li><a href="#">User Name</a></li> -->
+                    <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/signup">Sign Up</a>
+                    </li>
+                    <li role="presentation" class="pull-right" ng-hide="{{userNav}}"><a ng-href="/login">Log In</a>
+                    </li>
+                    <li role="presentation" class="pull-right" ng-show="{{userNav}}"><a ng-href="/logout">Logout</a>
+                    </li>
+                    <li role="presentation"><a href="#"><span ng-show="{{user.host}}">Host</span> {{user.displayName}}</a></li>
+                    <img class = "profileimage"ng-src="{{user.picture}}" alt="" width="40px" height="40px">
+               </ul>
+        </div><!-- /.container-fluid -->
+    </div>
+  </nav>
+  
+
+
+
+<div class="container-fluid">
+  <div class="row">
+   <div class="form-group col-md-1" >
+     <h6>Dates</h6>
+   </div>
+    <div class="form-group col-md-2">
+      <input autofocus type="date" name="search" class="form-control" ng-model="calendar" placeholder="Check In?">
+    </div>
+     <div class="form-group col-md-2">
+      <input autofocus type="date" name="search" class="form-control" ng-model="calendar1">
+    </div>
+    <div class="form-group col-md-2">
+            <select class="form-control" name="guest" id="guest" ng-model="guest" ng-options="option.name for option in options" ng-init="guest = options[1]"> 
+            </select>
+    </div>
+  </div> 
+ </div>
+ <!--  DIFFRENT RANGE SLIDERS -->
+ <div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-md-1" >
+          <h6>Price Range</h6>
+      </div>
+      <div class="form-group col-md-6">
+         <div ui-slider="{range: true}" min="30" max="1000" step="20" ng-model="price" class="ui-slider-horizontal ui-widget ui-widget-content ui-corner-all" > 
+         </div>
+      </div> 
+    </div>  
+  </div>
+  <!-- FILTER BUTTON --> 
+  <!-- ASK QUESTION HOW CAN YOU HIDE SHOW FILTER AND SHOW NO FILLTER SO IT MAKES MORE SENCE UX -->
+<div class="container-fluid">
+    <div class="row">
+      <div class="form-group col-md-2" ng-click="allFilters=!allFilters">
+           <input type="submit" value="More Filters" class="filter" ng-show="allFilters=!allFilters">
+           <input type="submit" value="No Filters" class="filter" ng-click="allFilters" ng-show="allFilters=!allFilters">
+      </div>
+    </div>
+</div> 
+       <!-- ****** AMENITIES****** -->
+<div class="container-fluid">
+ <div ng-show="allFilters">
+       <div class="row">
+          <div class="form-group col-md-1" >
+             <h6>Amenities</h6>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="wirelessInternet" value="wirelessInternet" ng-model="hotel.amenities.wirelessInternet"> Wireless Internet
+            </label>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="pool" value="pool" ng-model="hotel.amenities.pool">  Pool
+            </label>
+          </div>
+          <div class="form-group col-md-2">
+            <label class="checkbox-inline">
+                <input type="checkbox" id="kitchen" value="kitchen" ng-model="hotel.amenities.kitchen">  Kitchen
+            </label>
+          </div> 
+          <div ng-click="additionalAmenites=!additionalAmenites">
+           <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+          </div>
+        </div>
+   
+    <div ng-show="additionalAmenites">
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hourCheckIn" value="hourCheckIn" ng-model="hotel.amenities.hourCheckIn">    24-Hour Check-in
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="airConditioning" value="airConditioning" ng-model="hotel.amenities.airConditioning">    Air Conditioning
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.amenities.breakfast" >  Breakfast
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="buzzer" value="buzzer" ng-model="hotel.amenities.buzzer" >    Buzzer/Wireless Intercom
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cableTv" value="cableTv" ng-model="hotel.amenities.cableTv">    Cable TV
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="jacuzzi" value="jacuzzi" ng-model="hotel.amenities.jacuzzi">   Jacuzzi 
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="doorman" value="doorman" ng-model="hotel.amenities.doorman">      Doorman
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="dryer" value="dryer" ng-model="hotel.amenities.dryer">    Dryer
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="elevator" value="elevator" ng-model="hotel.amenities.elevator">    Elevator in Building
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="essentials" value="essentials" ng-model="hotel.amenities.essentials">        Essentials
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="family" value="family" ng-model="hotel.amenities.family">    Family/Kid Friendly
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="tv" value="tv" ng-model="hotel.amenities.tv">    tv
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="events" value="events" ng-model="hotel.amenities.events">     Suitable for Events         
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="parking" value="parking" ng-model="hotel.amenities.parking">      Free Parking on Premises
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="gym" value="gym" ng-model="hotel.amenities.gym">    Gym
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hangers" value="hangers" ng-model="hotel.amenities.hangers">          Hangers
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hotTub" value="hotTub" ng-model="hotel.amenities.hotTub">      Hot Tub
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="hairDryer" value="hairDryer" ng-model="hotel.amenities.hairDryer">    Hair Dryer
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="heating" value="heating" ng-model="hotel.amenities.heating">            Heating
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="fireplace" value="fireplace" ng-model="hotel.amenities.fireplace">      Indoor Fireplace
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="internet" value="internet" ng-model="hotel.amenities.internet">    Internet
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="iron" value="iron" ng-model="hotel.amenities.iron">              Iron
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="pets" value="pets" ng-model="hotel.amenities.pets">        Pets Allowed
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="wheelchair" value="wheelchair" ng-model="hotel.amenities.wheelchair">    Wheelchair Accessible
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="shampoo" value="shampoo" ng-model="hotel.amenities.shampoo">              Shampoo
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="washer" value="washer" ng-model="hotel.amenities.washer">        Washer      
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="smoking" value="smoking" ng-model="hotel.amenities.smoking">    Smoking Allowed
+                      </label>
+                    </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="form-group col-md-1" >
+                  <h6>Hotel Safety</h6>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="smokeDetector" value="smokeDetector" ng-model="hotel.hotelSafety.smokeDetector">  Smoke Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="carbon" value="carbon" ng-model="hotel.hotelSafety.carbon">  Carbon Monoxide Detector
+                  </label>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="aidKit" value="aidKit" ng-model="hotel.hotelSafety.aidKit">  First Aid Kit
+                  </label>
+                </div> 
+                <div ng-click="hotelSafety=!hotelSafety">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+              <div ng-show="hotelSafety">
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="safetyCard" value="safetyCard" ng-model="hotel.hotelSafety.safetyCard">   Safety Card 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="fireExtinguisher" value="fireExtinguisher" ng-model="hotel.hotelSafety.fireExtinguisher">    Fire Extinguisher
+                      </label>
+                    </div>
+                </div>
+              </div>
+               <div class="row">
+               <div class="form-group col-md-1" >
+                  <h6>Property Type</h6>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="hotel" value="hotel" ng-model="hotel.propertyType.hotel">  Hotel
+                  </label>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="house" value="house" ng-model="hotel.propertyType.house">  House   
+                  </label>
+                </div>
+                <div class="form-group col-md-2">
+                  <label class="checkbox-inline">
+                      <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.propertyType.breakfast">  Bed & Breakfast
+                  </label>
+                </div> 
+                <div ng-click="propertyType=!propertyType">
+                 <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
+                </div>
+              </div>
+                <div ng-show="propertyType">
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="boat" value="boat" ng-model="hotel.propertyType.boat">    Boat 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="bungalow" value="bungalow" ng-model="hotel.propertyType.bungalow">    Bungalow
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cabin" value="cabin" ng-model="hotel.propertyType.cabin">    Cabin
+                      </label>
+                    </div>
+                </div>
+                 <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="camper" value="camper" ng-model="hotel.propertyType.camper">    Camper/RV 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="cave" value="cave" ng-model="hotel.propertyType.cave">    Cave
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="chalet" value="chalet" ng-model="hotel.propertyType.chalet">      Chalet
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="condominium" value="condominium" ng-model="hotel.propertyType.condominium">    Condominium 
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" value="villa" ng-model="hotel.propertyType.villa" >    Villa
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="lighthouse" value="lighthouse" ng-model="hotel.propertyType.lighthouse">      Lighthouse
+                      </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-1" >
+                      <h6></h6>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="loft" value="loft" ng-model="hotel.propertyType.loft">      Loft
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="tent" value="tent" ng-model="hotel.propertyType.tent">      Tent
+                      </label>
+                    </div>
+                    <div class="form-group col-md-2">
+                      <label class="checkbox-inline">
+                          <input type="checkbox" id="treehouse" value="treehouse" ng-model="hotel.propertyType.treehouse">      Treehouse
+                      </label>
+                    </div>
+                </div>
+              </div>
+  </div>
+</div><!-- closing container fluid -->
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6">
+     <div class="container-fluid">
+        <div class="row">
+          <sliderhotels hotel="hotel" ng-repeat="hotel in hotels track by $index"></sliderhotels>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6" id="map">
+    </div>
+  </div>
+</div>   

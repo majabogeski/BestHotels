@@ -1,0 +1,20 @@
+<div class="col-md-6">
+  <a ng-href="/hotels/{{hotel._id}}"><span class="hotelname">{{hotel.hotelname}}</span></a>, {{hotel.city}}
+  <div class="relative">
+    <img class="imgsize" ng-src="{{hotel.photos[currentIndex]}}">
+    <div class="arrowleft">
+      <a href="#" ng-click="prev()">
+        <img class="arrowleft" src="/images/arrow_white_left.png" />
+      </a>
+      <div></div>
+    </div>
+    <div>
+      <a href="#" ng-click="next()">
+        <img class="arrowright" src="/images/arrow-white-right.png"/>
+      </a>
+    </div>
+    <div class="price_on_img">
+         <p class="dollar">${{hotel.price}}</p>
+    </div>
+  </div>
+</div>
