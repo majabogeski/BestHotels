@@ -76,19 +76,17 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
   $scope.checkbox = function(hotel){
     // step 1. get an array of all the amenities (keys) that are currently checked
     
-    // var arrObj = Object.keys($scope.amenities);
-    // console.log($scope.amenities);
-
+   
       var newArr = Object.keys($scope.amenities);
 
         var checkedAmenities = newArr.filter(function(el){
           return $scope.amenities[el];
         });
-    for(var i =0; i < checkedAmenities.length; i++){
-      if(hotel.amenities[checkedAmenities[i]]===false){ 
-        return false;
+      for(var i =0; i < checkedAmenities.length; i++){
+        if(hotel.amenities[checkedAmenities[i]]===false){ 
+          return false;
+        }
       }
-    }
     return hotel;
   };
 
