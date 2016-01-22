@@ -1,4 +1,4 @@
-app.controller("HotelsController", function($scope, $auth, HotelService,$location){
+app.controller("HotelsController", function($scope, $auth, HotelService,$location, $timeout){
    $scope.userNav = false;
    if ($auth.getPayload()) {
     $scope.user = $auth.getPayload().user;
@@ -126,18 +126,31 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
           alert("Geocode was not successful for the following reason: " + status);
         }
       });
-      $scope.hotels.forEach(function(hotel){
-        geocoder.geocode( { 'address': hotel.address}, function(results, status) {
-          if (status == google.maps.GeocoderStatus.OK) {
-            var marker = new google.maps.Marker({
-                map: map,
-                position: results[0].geometry.location
-            });
-          } else {
-            alert("Geocode was not successful for the following reason: " + status);
+      var i = 0;
+      var geocoderCallback = function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          var marker = new google.maps.Marker({
+              map: map,
+              position: results[0].geometry.location
+          });
+          i++;
+          console.log("I: ", i);
+          if (i < $scope.hotels.length) {
+            $timeout(function() {
+              geocoderHotel($scope.hotels[i], geocoderCallback);
+            }, 500);
           }
-        });
-      });
+        } else {
+          alert("Geocode was not successful for the following reason: " + status);
+        }
+      };
+      var geocoderHotel = function(hotel, callback){
+        console.log("address", hotel.address);
+        geocoder.geocode( { 'address': hotel.address}, callback);
+      };
+      if (i < $scope.hotels.length) {
+        geocoderHotel($scope.hotels[i], geocoderCallback);
+      }
     };
   }
 
