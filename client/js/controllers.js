@@ -16,6 +16,12 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     {name: '9 Guests'},
     {name: '10+ Guests'}
   ];
+
+  $scope.firstamenities = {
+    wirelessInternet: false,
+    pool: false,
+    kitchen: false
+  };
  
    $scope.amenities = {
             hourCheckIn: false,
@@ -46,6 +52,35 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
             washer: false,
             smoking: false
       };
+
+  
+    $scope.propertyTypes ={
+    hotel:false,
+    house:false,
+    breakfast:false,
+    boat:false,
+    bungalow:false,
+    cabin:false,
+    camper:false, 
+    cave:false,
+    chalet:false,
+    condominium:false,
+    lighthouse:false,
+    loft:false,
+    treehouse:false
+  };
+// <span ng-repeat="(key,value) in hotel.amenities">
+//     <span class="between" ng-show="value===true">{{key}}</span>
+// </span>
+
+  // $scope.filterByCategory = function (amenity){
+  //   if
+  // }
+
+  $scope.test = function(value){
+    console.log(value);
+  };
+
 
   $scope.searchHotel = function(location){
    $scope.location={};

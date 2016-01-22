@@ -4,6 +4,11 @@
  height: 20px;*/
  padding-bottom: 20px;
 }
+.hotel-checkbox3{
+ /*width: 239.82px;
+ height: 20px;*/
+ padding-bottom: 20px;
+}
 .space{
   padding-left: 4px;
   font-weight: normal;
@@ -296,6 +301,12 @@
   margin-top: 420px;
   width: 100%;
  /* z-index: 0;*/
+}
+.box{
+  padding-top: 8px;
+}
+.s{
+  padding-top: 12px;
 }
 /*small slider*/
 .sliderindex {
