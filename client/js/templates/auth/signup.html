@@ -3,6 +3,7 @@
     <div class="center-form panel">
       <div class="panel-body">
         <h2 class="text-center">Sign up</h2>
+        <h1 style="color: red">{{error}}</h1>
         <form method="post" ng-submit="signup()" name="signupForm">
           <div class="form-group has-feedback">
             <input class="form-control input-lg" type="text" name="displayName" ng-model="user.displayName" placeholder="Name" required autofocus>
@@ -24,7 +25,7 @@
           <p class="text-center text-muted"><small>By clicking on Sign up, you agree to <a href="#">terms & conditions</a> and <a href="#">privacy policy</a></small></p>
           <button type="submit" class="btn btn-lg btn-block btn-primary">Sign up</button>
           <br/>
-          <p class="text-center text-muted">Already have an account? <a href="/login">Log in now</a></p>
+          <p class="text-center text-muted">Already have an account?<a href="/login">Log in now</a></p>
         </form>
       </div>
     </div>

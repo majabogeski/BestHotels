@@ -446,7 +446,7 @@ app.controller('SignupController', function($scope, $location, $auth) {
         console.log('You have successfully created a new account and have been signed-in');
       })
       .catch(function(response) {
-        console.log(response.data.message);
+        $scope.error = response.data.message;
       });
   };
   $scope.authenticate = function(provider) {
