@@ -77,22 +77,6 @@
           <div class="form-group col-md-1" >
              <h6 class="amen">Amenities</h6>
           </div>
-          <!-- <div class="form-group col-md-2 box">
-            <label class="checkbox-inline">
-                <input type="checkbox" id="wirelessInternet" value="wirelessInternet" ng-model="hotel.amenities.wirelessInternet" ng-click="test(hotel.amenities.wirelessInternet)"> Wireless Internet
-            </label>
-          </div> -->
-          <!-- <div class="form-group col-md-2 box">
-            <label class="checkbox-inline">
-                <input type="checkbox" id="pool" value="pool" ng-model="hotel.amenities.pool">  Pool
-            </label>
-          </div> -->
-        <!--   <div class="form-group col-md-2 box">
-            <label class="checkbox-inline">
-                <input type="checkbox" id="kitchen" value="kitchen" ng-model="hotel.amenities.kitchen">  Kitchen
-            </label>
-          </div> --> 
-
           <div class="form-group col-md-2 box" ng-repeat="(key, text) in firstamenities">
             <label class="checkbox-inline">
                 <input type="checkbox" checklist-value="key" ng-click="test(key)"> {{key}}
@@ -195,7 +179,6 @@
               </div>
             </div>
         </div>
-
   </div>
 </div><!-- closing container fluid -->
 <div class="container-fluid">
@@ -203,7 +186,7 @@
     <div class="col-xs-6">
      <div class="container-fluid">
         <div class="row">
-          <sliderhotels hotel="hotel" ng-repeat="hotel in hotels track by $index"></sliderhotels>
+          <sliderhotels hotel="hotel" ng-repeat="hotel in hotels  | filter:checkbox"></sliderhotels>
         </div>
       </div>
     </div>

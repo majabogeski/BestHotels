@@ -52,8 +52,6 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
             washer: false,
             smoking: false
       };
-
-  
     $scope.propertyTypes ={
     hotel:false,
     house:false,
@@ -69,16 +67,29 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
     loft:false,
     treehouse:false
   };
-// <span ng-repeat="(key,value) in hotel.amenities">
-//     <span class="between" ng-show="value===true">{{key}}</span>
-// </span>
 
-  // $scope.filterByCategory = function (amenity){
-  //   if
-  // }
+  $scope.test = function(key){
+    $scope.amenities[key]=!$scope.amenities[key];
+    console.log(key);
+  };
 
-  $scope.test = function(value){
-    console.log(value);
+  $scope.checkbox = function(hotel){
+    // step 1. get an array of all the amenities (keys) that are currently checked
+    
+    // var arrObj = Object.keys($scope.amenities);
+    // console.log($scope.amenities);
+
+      var newArr = Object.keys($scope.amenities);
+
+        var checkedAmenities = newArr.filter(function(el){
+          return $scope.amenities[el];
+        });
+    for(var i =0; i < checkedAmenities.length; i++){
+      if(hotel.amenities[checkedAmenities[i]]===false){ 
+        return false;
+      }
+    }
+    return hotel;
   };
 
 
@@ -129,6 +140,7 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
       });
     };
   }
+
 });
 
 app.controller("NewHotelController", function($scope, $location,$routeParams, $auth, HotelService){
