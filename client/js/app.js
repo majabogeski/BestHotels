@@ -32,8 +32,8 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
         loginRequired: loginRequired
       }
     })
-    .when('/hotels/thanks',{
-      templateUrl: "templates/hotels/thanks.html",
+    .when('/hotels/thankyou',{
+      templateUrl: "templates/hotels/thankyou.html",
       controller: "ShowHotelController"
     })
     .when('/hotels/:id',{
