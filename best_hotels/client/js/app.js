@@ -32,6 +32,10 @@ app.config(function($routeProvider, $locationProvider, $httpProvider, $authProvi
         loginRequired: loginRequired
       }
     })
+    .when('/hotels/thanks',{
+      templateUrl: "templates/hotels/thanks.html",
+      controller: "ShowHotelController"
+    })
     .when('/hotels/:id',{
       templateUrl: "templates/hotels/show.html",
       controller: "ShowHotelController"
