@@ -27,18 +27,22 @@
   /*opacity: 0.6;*/
 }
 .bigimg{
-  width: 100%;
-  /*height: 600px;*/
-  height: 550px;
+  width: 100vw;
+  /*width: 100%;*/
+  height: 38.5vw;
+  /*height: 550px;*/
   /*z-index: -2;*/
 }
 #sbox{
   position: relative;
-  margin-top: 398px;
-  margin-left: 0px;
-  margin-right: 0px;
-  height: 80px;
-  width: 100%;
+  margin-top: 27.8vw;
+  /*margin-top: 398px;*/
+  margin-left: 0vw;
+  margin-right: 0vw;
+  height: 5.6vw;
+  width: 98vw;
+  /*height: 80px;
+  width: 100%;*/
   background-color: black;
   opacity: 0.6;
  /* z-index: 1;*/
@@ -163,6 +167,7 @@
   padding-top: 15px;
 }
 .profileimage{
+  margin-top: 5px;
   border-radius: 50%;
   }
  /* MAP*/
@@ -184,7 +189,7 @@
   cursor:pointer;
   color:#ffffff;
   font-family:Trebuchet MS;
-  font-size:16px;
+  /*font-size:16px;*/
   font-weight:bold;
   padding:4px 28px;
   text-decoration:none;
@@ -297,9 +302,9 @@
 #search{
   position: absolute;
 
-  /*margin-top: 540px;*/
-  margin-top: 420px;
-  width: 100%;
+  
+  margin-top: 29.5vw;
+  width: 100vw;
  /* z-index: 0;*/
 }
 .box{
@@ -477,6 +482,11 @@ h1 {
   font-size: 15px;
   font-weight: bold;
 }
+.safty{
+  margin-top: 3px;
+  font-size: 15px;
+  font-weight: bold;
+}
 .anvisible{
   margin-left: 105px;
 }
@@ -597,6 +607,50 @@ h1 {
 .myButton:active {
   position:relative;
   top:1px;
+}
+
+.explore{
+  margin-top: 1vw;
+  width: 48vw;
+}
+.tahoe{
+  margin-top: 1vw;
+  width: 31.2vw;
+  height: 27vw;
+}
+.iceland{
+  margin-top: 1.9vw;
+  width: 31.3vw;
+  height: 23vw;
+}
+.sun{
+  margin-top: 1.9vw;
+  width: 48vw;
+  height: 23vw;
+}
+.titlep{
+  position: absolute;
+  margin-top: 12vw;
+  margin-left: 30vw;
+  color: white;
+}
+.titlet{
+  position: absolute;
+  margin-top: 12vw;
+  margin-left: 70vw;
+  color: white;
+}
+.titlei{
+  position: absolute;
+  margin-top: 12vw;
+  margin-left: 19vw;
+  color: white;
+}
+.titlev{
+  position: absolute;
+  margin-top: 12vw;
+  margin-left: 60vw;
+  color: white;
 }
 
 

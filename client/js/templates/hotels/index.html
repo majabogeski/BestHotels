@@ -98,87 +98,62 @@
               </div>
             </div>
         </div>
-            
 <!-- HOTEL SAFETY -->
               <div class="row">
                 <div class="form-group col-md-1" >
-                  <h6 class="amen">Hotel Safety</h6>
+                  <h6 class="safty">Hotel Safety</h6>
                 </div>
-                <div class="form-group col-md-2">
+                <div class="form-group col-md-2 " ng-repeat="(key, text) in hotelsafety">
                   <label class="checkbox-inline">
-                      <input type="checkbox" id="smokeDetector" value="smokeDetector" ng-model="hotel.hotelSafety.smokeDetector">  Smoke Detector
+                      <input type="checkbox" checklist-value="key" ng-click="test2(key)"> {{key}}
                   </label>
                 </div>
-                <div class="form-group col-md-2">
-                  <label class="checkbox-inline">
-                      <input type="checkbox" id="carbon" value="carbon" ng-model="hotel.hotelSafety.carbon">  Carbon Monoxide Detector
-                  </label>
-                </div>
-                <div class="form-group col-md-2">
-                  <label class="checkbox-inline">
-                      <input type="checkbox" id="aidKit" value="aidKit" ng-model="hotel.hotelSafety.aidKit">  First Aid Kit
-                  </label>
-                </div> 
+
                 <div ng-click="hotelSafety=!hotelSafety">
                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
                 </div>
               </div>
-              <div ng-show="hotelSafety">
-                 <div class="row">
-                    <div class="form-group col-md-1" >
-                      <h6></h6>
+
+              <div class="row" ng-show="hotelSafety">
+                  <div class="form-group col-xs-1">
+                  </div>
+                   <div class="col-xs-6">
+                      <div class="row">
+                          <label class="col-md-4 hotel-checkbox" ng-repeat="(key, text) in morehotelsafety">
+                            <input  type="checkbox" checklist-value="key" ng-click="test2(key)"> <span class="space">{{key}}</span>
+                          </label>
+                      </div>
                     </div>
-                    <div class="form-group col-md-2">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="safetyCard" value="safetyCard" ng-model="hotel.hotelSafety.safetyCard">   Safety Card 
-                      </label>
-                    </div>
-                    <div class="form-group col-md-2">
-                      <label class="checkbox-inline">
-                          <input type="checkbox" id="fireExtinguisher" value="fireExtinguisher" ng-model="hotel.hotelSafety.fireExtinguisher">    Fire Extinguisher
-                      </label>
-                    </div>
-                </div>
               </div>
               <!-- PROPERTY TYPE -->
                <div class="row">
-               <div class="form-group col-md-1" >
-                  <h6 class="amen">Property Type</h6>
-                </div>
-                <div class="form-group col-md-2 box">
-                  <label class="checkbox-inline">
-                      <input type="checkbox" id="hotel" value="hotel" ng-model="hotel.propertyType.hotel">  Hotel
-                  </label>
-                </div>
-                <div class="form-group col-md-2 box">
-                  <label class="checkbox-inline">
-                      <input type="checkbox" id="house" value="house" ng-model="hotel.propertyType.house">  House   
-                  </label>
-                </div>
-                <div class="form-group col-md-2 box">
-                  <label class="checkbox-inline">
-                      <input type="checkbox" id="breakfast" value="breakfast" ng-model="hotel.propertyType.breakfast">  Bed & Breakfast
-                  </label>
-                </div> 
+                   <div class="form-group col-md-1">
+                      <h6 class="amen">Property Type</h6>
+                   </div>
+                  <!--  <div class="row"> -->
+                      <div class="form-group col-md-2 box" ng-repeat="(key, text) in firstproperty">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" checklist-value="key" ng-click="test3(key)"> {{key}}
+                        </label>
+                      </div>
+                   
                 <div ng-click="propertyType=!propertyType" class="box">
                  <span class="glyphicon glyphicon-triangle-bottom" aria-hidden="true"></span> 
                 </div>
               </div>
 
-
-          <div class="row">
-            <div class=" form-group col-xs-1">
-          </div>
-           <div class="col-xs-6">
-              <div class="row">
-                <div ng-show="propertyType">
-                  <label class="col-md-4 hotel-checkbox3" ng-repeat="(key, text) in propertyTypes">
-                    <input  type="checkbox" checklist-model="property.propertyTypes" checklist-value="key"> <span class="space">{{key}}</span>
-                  </label>
-                </div>
+               <div class="row" ng-show="propertyType">
+                  <div class="form-group col-xs-1">
+                  </div>
+                   <div class="col-xs-6">
+                      <div class="row">
+                          <label class="col-md-4 hotel-checkbox" ng-repeat="(key, text) in propertyTypes">
+                            <input  type="checkbox" checklist-value="key" ng-click="test3(key)"> <span class="space">{{key}}</span>
+                          </label>
+                      </div>
+                    </div>
               </div>
-            </div>
-        </div>
+
   </div>
 </div><!-- closing container fluid -->
 <div class="container-fluid">

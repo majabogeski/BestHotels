@@ -52,40 +52,74 @@ app.controller("HotelsController", function($scope, $auth, HotelService,$locatio
             washer: false,
             smoking: false
       };
-    $scope.propertyTypes ={
-    hotel:false,
-    house:false,
-    breakfast:false,
-    boat:false,
-    bungalow:false,
-    cabin:false,
-    camper:false, 
-    cave:false,
-    chalet:false,
-    condominium:false,
-    lighthouse:false,
-    loft:false,
-    treehouse:false
-  };
+
+      $scope.hotelsafety = {
+            smokeDetector: false,
+            carbonMonoxideDetector: false,
+            firstAidKit: false
+      };
+
+       $scope.morehotelsafety = {
+            safetyCard: false,
+            fireExtinguisher: false
+
+      };
+
+       $scope.firstproperty = {
+            hotel:false,
+            house:false,
+            bedAndBreakfast:false
+      };
+            $scope.propertyTypes ={
+            bungalow:false,
+            cabin:false,
+            camper:false, 
+            cave:false,
+            chalet:false,
+            condominium:false,
+            lighthouse:false,
+            loft:false,
+            treehouse:false
+          };
 
   $scope.test = function(key){
     $scope.amenities[key]=!$scope.amenities[key];
     console.log(key);
   };
+  //   $scope.test2 = function(key){
+  //   $scope.hotelsafety[key]=!$scope.hotelsafety[key];
+  //   console.log(key);
+  // };
+  // $scope.test3 = function(key){
+  //   $scope.propertyTypes[key]=!$scope.propertyTypes[key];
+  //   console.log(key);
+  // };
 
   $scope.checkbox = function(hotel){
-    // step 1. get an array of all the amenities (keys) that are currently checked
-    
-   
       var newArr = Object.keys($scope.amenities);
+      // var safetyArr = Object.keys($scope.hotelsafety);
+      // var propertyArr = Object.keys($scope.propertyTypes);
 
-        var checkedAmenities = newArr.filter(function(el){
-          return $scope.amenities[el];
-        });
+      var checkedAmenities = newArr.filter(function(el){
+        return $scope.amenities[el];
+      });
+      // var checkedSafety = safetyArr.filter(function(el){
+      //   return $scope.hotelsafety[el];
+      // });
+      // var checkedProperty = propertyArr.filter(function(el){
+      //   return $scope.propertyTypes[el];
+      // });
+
       for(var i =0; i < checkedAmenities.length; i++){
         if(hotel.amenities[checkedAmenities[i]]===false){ 
           return false;
         }
+        // if(hotel.hotelsafety[checkedSafety[i]]===false){ 
+        //   return false;
+        // }
+        // if(hotel.propertyTypes[propertyTypes[i]]===false){ 
+        //   return false;
+        // }
       }
     return hotel;
   };
