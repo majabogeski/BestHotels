@@ -656,7 +656,20 @@ h1 {
   margin-left: 45vw;
 }
 
-
+.or{
+  text-align: center;
+  font-weight: bold;
+}
+.fb{
+  background-color: #3B5998;
+  color: white;
+  margin-left:  34vw;
+}
+.fbsignup{
+  background-color: #3B5998;
+  color: white;
+  margin-left:  43vw;
+}
 /*.starRating:not(old){
   display        : inline-block;
   width          : 7.5em;
